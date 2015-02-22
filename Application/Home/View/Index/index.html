@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+  <head>
+  <title>Bootstrap</title>
+  <include file="Common:headlink"/>
+    <style type="text/css">
+    	.starter-template {
+		    padding: 40px 15px;
+		    text-align: center;
+		}
+    </style>
+  </head>
+  <body>
+    <nav class="navbar navbar-inverse" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">Mteam</a>
+        </div>
+        <div id="navbar" class="collapse navbar-collapse">
+          <ul class="nav navbar-nav">
+            <li class="active"><a href="#">首页</a></li>
+            <li><a href="#about">团队</a></li>
+            <li><a href="#contact">项目</a></li>
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="{:U('Home/Sign/signin')}" tppabs="">登录</a></li>
+            <li><a href="{:U('Home/Sign/signup')}" tppabs="">注册</a></li>
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </nav>
+
+    <div class="container">
+      <div class="starter-template">
+        <h1>alonehover毕业设计</h1>
+        <p class="lead">基于html5的校园项目团队管理系统</p>
+      </div>
+    </div><!-- /.container -->
+    <include file="Common:footlink"/>
+  </body>
+</html>
