@@ -11,15 +11,12 @@
     </style>
 </head>
 <body>
+    <include file="Common:headnav"/>
     <div class="container">
       <form class="form-signup" role="form" action="{:U('Home/Sign/signup_action')}" method="post">
         <h2 class="form-signup-heading">成为Mteamer</h2>
-        <input type="email" name="uname" class="form-control" placeholder="填写你常用的邮箱" required autofocus>
-        <input type="password" name="pwd" class="form-control" placeholder="设置你的登录密码" required>
-        <input type="stunum" name="stunum" class="form-control" placeholder="输入你的学号" required>
-        <input type="major" name="major" class="form-control" placeholder="输入你的专业" required>
-        <input type="qq" name="qq" class="form-control" placeholder="输入你的qq号码" required>
-        <input type="phone" name="phone" class="form-control" placeholder="输入你的手机号码" required>
+        <input type="text" name="stunum" class="form-control" placeholder="输入你的学号" required>
+        <input type="password" name="password" class="form-control" placeholder="设置你的登录密码" required>
         <div class="checkbox">
           <label>
             <input type="checkbox" value="remember-me" checked="checked"> 同意遵守《Mteam注册协议》

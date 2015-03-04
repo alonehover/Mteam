@@ -11,11 +11,12 @@
     </style>
 </head>
 <body>
+    <include file="Common:headnav"/>
     <div class="container">
-      <form class="form-signin" role="form">
+      <form class="form-signin" action="{:U('Home/Sign/signin_action')}" role="form">
         <h2 class="form-signin-heading text-center">Mteam</h2>
-        <input type="email" name="uname" class="form-control" placeholder="请输入邮箱" required autofocus>
-        <input type="password" name="pwd" class="form-control" placeholder="请输入密码" required>
+        <input type="text" name="stunum" class="form-control" placeholder="输入你的学号" required>
+        <input type="password" name="password" class="form-control" placeholder="请输入密码" required>
         <div class="checkbox">
           <label>
             <input type="checkbox" value="remember-me"> 记住密码
