@@ -65,12 +65,3 @@
     background-size: 150px 150px;
   }
 }
-.mt-num {
-  margin-top: 30px;
-}
-.mt-num .num {
-  padding: 30px;
-  font-size: 30px;
-  background: #333;
-  color: #fff;
-}
