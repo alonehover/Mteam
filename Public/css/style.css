@@ -5,3 +5,8 @@ body {
 a:hover {
   text-decoration: none;
 }
+ul,
+ol,
+li {
+  list-style: none;
+}

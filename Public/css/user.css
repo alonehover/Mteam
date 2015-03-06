@@ -1,0 +1,81 @@
+body,
+html {
+  height: 100%;
+}
+.left-nav {
+  background: #101010;
+  height: 100%;
+  position: fixed;
+  top: 50px;
+  left: 0;
+  padding: 0;
+  z-index: 12;
+}
+.left-nav > ul > li {
+  display: block;
+  position: relative;
+  border-bottom: 1px solid #222;
+}
+.left-nav > ul > li.active {
+  background-color: #27a9e3;
+  border-bottom: 1px solid #27a9e3;
+}
+.left-nav > ul > li.active a {
+  color: #fff;
+}
+.left-nav > ul > li > a > .label {
+  background-color: #F66;
+}
+.left-nav > ul > li > a:hover {
+  background-color: #888;
+  color: #fff;
+}
+.left-nav > ul li ul {
+  background-color: #1e242b;
+}
+.left-nav > ul li ul li a {
+  color: #939da8;
+}
+.left-nav > ul li ul li a:hover,
+.left-nav > ul li ul li.active a {
+  color: #fff;
+  background-color: #28b779;
+}
+.left-nav > ul {
+  margin: 0px 0 0;
+  padding: 0;
+  position: absolute;
+  width: 100%;
+}
+.left-nav > ul > li > a {
+  padding: 10px 0 10px 15px;
+  display: block;
+  color: #939da8;
+}
+.left-nav > ul > li > a > i {
+  margin-right: 10px;
+}
+.left-nav > ul > li > a > .label {
+  margin: 0 20px 0 0;
+  float: right;
+  padding: 3px 5px 2px;
+}
+.left-nav > ul li ul {
+  display: none;
+  margin: 0;
+  padding: 0;
+}
+.left-nav > ul li.open ul {
+  display: block;
+}
+.left-nav > ul li ul li a {
+  padding: 10px 0 10px 25px;
+  display: block;
+  color: #777777;
+}
+.left-nav > ul li ul li:first-child a {
+  border-top: 0;
+}
+.left-nav > ul li ul li:last-child a {
+  border-bottom: 0;
+}

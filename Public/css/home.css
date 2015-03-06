@@ -65,3 +65,8 @@
     background-size: 150px 150px;
   }
 }
+.thumbnail .caption {
+  height: 200px;
+  overflow-y: hidden;
+  color: #555;
+}
