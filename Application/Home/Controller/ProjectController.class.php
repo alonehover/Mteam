@@ -10,7 +10,5 @@ class ProjectController extends Controller {
 		$this->assign('active','project');
 		$this->display();
 	}
-
-
 }
  ?>
