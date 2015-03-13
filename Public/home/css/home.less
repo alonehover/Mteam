@@ -4,6 +4,10 @@
 	color: #fff;
 }
 
+.row{
+  margin: 0;
+}
+
 @media screen and (min-width: 768px){
 	.masthead {
 	  padding: 90px 0 110px;
@@ -67,17 +71,55 @@ only screen and (     -o-min-device-pixel-ratio: 2/1) {
 .item-content{
   margin-top: 20px;
 }
-
+.team-search{
+  margin-top: 3%;
+}
 .form-sign{
   width: 330px;
 }
-/*.thumbnail {
-display: block;
-margin-left: auto;
-margin-right: auto;
-text-align: center;
-max-width: 310px;
-margin-bottom: 30px;
-border-radius: 0;
+
+.item-shadow{
+  box-shadow: 0px 0px 2px 2px rgba(0,0,0,0.2);
+  border-radius: 5px;
+  padding:0px 20px;
 }
-*/
+
+.project-list tbody>tr>td,.project-list thead>tr>th{
+  line-height: 40px;
+  max-width: 80px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+
+.dl-team{
+  min-height: 120px;
+}
+.dl-team dt {
+  float: left;
+  width: 35%;
+  overflow: hidden;
+  clear: left;
+  text-align: left;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  line-height: 30px;
+}
+.dl-team dd {
+  /*margin-left: 35%;*/
+  text-align: left;
+  line-height: 30px;
+}
+
+.caption .caption-head{
+  line-height: 40px;
+  font-size: 18px;
+  width: 100%;
+  padding-bottom: 10px;
+  margin-bottom: 10px;
+  border-bottom: 1px #eee solid;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
