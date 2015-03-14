@@ -22,89 +22,41 @@
 			
 			<div class="row">
 				<div class="col-sm-4">
-					<div class="xe-widget xe-counter" data-count=".num" data-from="0" data-to="99.9" data-suffix="%" data-duration="2">
+					<div class="xe-widget xe-counter" data-count=".num" data-from="0" data-to="122" data-suffix="人" data-duration="1">
 						<div class="xe-icon">
-							<i class="linecons-cloud"></i>
+							<i class="fa fa-user"></i>
 						</div>
 						<div class="xe-label">
-							<strong class="num">0.0%</strong>
-							<span>Server uptime</span>
+							<strong class="num">0</strong>
+							<span>注册人数</span>
 						</div>
 					</div>
 				</div>
 				<div class="col-sm-4">
-					<div class="xe-widget xe-counter xe-counter-purple" data-count=".num" data-from="1" data-to="117" data-suffix="k" data-duration="3" data-easing="false">
+					<div class="xe-widget xe-counter xe-counter-purple" data-count=".num" data-from="0" data-to="27" data-suffix="队" data-duration="1" data-easing="false">
 						<div class="xe-icon">
-							<i class="linecons-user"></i>
+							<i class="fa fa-group"></i>
 						</div>
 						<div class="xe-label">
-							<strong class="num">1k</strong>
-							<span>Users Total</span>
+							<strong class="num">0</strong>
+							<span>注册团队</span>
 						</div>
 					</div>
 				</div>
 				<div class="col-sm-4">
-					<div class="xe-widget xe-counter xe-counter-info" data-count=".num" data-from="1000" data-to="2470" data-duration="4" data-easing="true">
+					<div class="xe-widget xe-counter xe-counter-info" data-count=".num" data-from="0" data-to="110" data-suffix="项" data-duration="1" data-easing="true">
 						<div class="xe-icon">
 							<i class="linecons-camera"></i>
 						</div>
 						<div class="xe-label">
-							<strong class="num">1000</strong>
-							<span>New Daily Photos</span>
+							<strong class="num">0</strong>
+							<span>发布项目</span>
 						</div>
 					</div>
 				</div>
 			</div>
-
-			
-			<!-- Main Footer -->
-			<!-- Choose between footer styles: "footer-type-1" or "footer-type-2" -->
-			<!-- Add class "sticky" to  always stick the footer to the end of page (if page contents is small) -->
-			<!-- Or class "fixed" to  always fix the footer to the end of page -->
-			<footer class="main-footer sticky footer-type-1">
-				
-				<div class="footer-inner">
-				
-					<!-- Add your copyright text here -->
-					<div class="footer-text">
-						&copy; 2014 
-						<strong>Xenon</strong> 
-						theme by <a href="http://laborator.co" target="_blank">Laborator</a>
-					</div>
-					
-					
-					<!-- Go to Top Link, just add rel="go-top" to any link to add this functionality -->
-					<div class="go-up">
-					
-						<a href="#" rel="go-top">
-							<i class="fa-angle-up"></i>
-						</a>
-						
-					</div>
-					
-				</div>
-				
-			</footer>
+			<include file="Common:footnav"/>
 		</div>
-
-	<!-- Bottom Scripts -->
-	<script src="__PUBLIC__/bootstrap/js/bootstrap.min.js"></script>
-	<script src="__PUBLIC__/common/js/TweenMax.min.js"></script>
-	<script src="__PUBLIC__/common/js/resizeable.js"></script> 
- 	<script src="__PUBLIC__/common/js/joinable.js"></script>
-	<script src="__PUBLIC__/common/js/xenon-api.js"></script>
-	<script src="__PUBLIC__/common/js/xenon-toggles.js"></script> 
-
-
-	<!-- Imported scripts on this page -->
- 	<script src="__PUBLIC__/common/js/xenon-widgets.js"></script>
-	<script src="__PUBLIC__/common/js/devexpress-web-14.1/js/globalize.min.js"></script>
-	<script src="__PUBLIC__/common/js/devexpress-web-14.1/js/dx.chartjs.js"></script>
-	<script src="__PUBLIC__/common/js/toastr/toastr.min.js"></script> 
-
-
-	<!-- JavaScripts initializations and stuff -->
-	<script src="__PUBLIC__/common/js/xenon-custom.js"></script>
-
+<include file="Common:footlink"/>
 </body>
 </html>

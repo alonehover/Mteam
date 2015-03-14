@@ -27,7 +27,7 @@ class SignController extends Controller {
 			);
 			$flag=$this->check_stunum(I('stunum'));
 			if($flag){
-				$result=M('user')->where($data)->find();
+				$result=M('auther')->where($data)->find();
 				if($result){
 					session('stunum',I('stunum'));
 					$this->success('欢迎进入MTeam!',U('Home/Index/index'));
@@ -56,19 +56,22 @@ class SignController extends Controller {
 		if(!IS_POST) $this->error('页面不存在');
 		if(isset($_POST)){
 			$data = array(
-				'password' => MD5(I('password')),
-				'stunum' => I('stunum'),
+				'password' 	=> MD5(I('password')),
+				'stunum' 	=> I('stunum'),
+				'email'		=> I('email'),
 			);
 			$flag=$this->check_stunum(I('stunum'));
-			// p($flag);die;
 			if($flag){
 				$this->error('学号已存在');
 			}else{
-				$status=M('user')->add($data);
+				$status=M('auther')->add($data);
 				$this->success('恭喜你，注册成功~ 快去登录吧',U('Home/Sign/signin'));
 			}
 		}
 	}
+	/**
+	 * 退出
+	 */
 	public function signout(){
 		session('stunum',null);
 		$this->success('正在注销账户，感谢您的使用');
@@ -80,7 +83,7 @@ class SignController extends Controller {
 	public function check_stunum($val)
 	{
 		$str = array('stunum' => $val);
-		$flag=M('user')->where($str)->select();
+		$flag=M('auther')->where($str)->select();
 		$result = ($flag) ? 1 : 0 ;		//已存在输出1  
 		return $result;
 	}

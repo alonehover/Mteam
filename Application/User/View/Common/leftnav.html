@@ -1,32 +1,25 @@
-<div class="sidebar-menu toggle-others fixed collapsed">
-	
+<div class="sidebar-menu toggle-others fixed">
 	<div class="sidebar-menu-inner">	
-		
 		<header class="logo-env">
-			
 			<!-- logo -->
 			<div class="logo">
 				<a href="dashboard-1.html" class="logo-expanded">
 					<img src="__PUBLIC__/user/img/logo@2x.png" width="80" alt="" />
 				</a>
-				
 				<a href="dashboard-1.html" class="logo-collapsed">
 					<img src="__PUBLIC__/user/img/logo-collapsed@2x.png" width="40" alt="" />
 				</a>
 			</div>
-			
 			<!-- This will toggle the mobile menu and will be visible only on mobile devices -->
 			<div class="mobile-menu-toggle visible-xs">
 				<a href="#" data-toggle="user-info-menu">
 					<i class="fa-bell-o"></i>
 					<span class="badge badge-success">7</span>
 				</a>
-				
 				<a href="#" data-toggle="mobile-menu">
 					<i class="fa-bars"></i>
 				</a>
 			</div>
-			
 			<!-- This will open the popup with user profile settings, you can use for any purpose, just be creative -->
 			<div class="settings-icon">
 				<a href="#" data-toggle="settings-pane" data-animate="true">
@@ -35,172 +28,145 @@
 			</div>
 		</header>
 		<ul id="main-menu" class="main-menu">
-
 			<li>
 				<a href="extra-gallery.html">
-					<i class="linecons-beaker"></i>
-					<span class="title">Extra</span>
-					<span class="label label-purple pull-right hidden-collapsed">New Items</span>
+					<i class="linecons-user"></i>
+					<span class="title">用户管理</span>
+					<!-- <span class="label label-purple pull-right hidden-collapsed">New 12</span> -->
 				</a>
 				<ul>
 					<li>
+						<a href="{:U('User/Team/list_all')}">
+							<i class="fa fa-list-ul"></i>
+							<span class="title">用户列表</span>
+							<!-- <span class="label label-warning pull-right">4</span> -->
+						</a>
+					</li>
+					<li>
 						<a href="extra-icons-fontawesome.html">
-							<span class="title">Icons</span>
-							<span class="label label-warning pull-right">4</span>
-						</a>
-						<ul>
-							<li>
-								<a href="extra-icons-fontawesome.html">
-									<span class="title">Font Awesome</span>
-								</a>
-							</li>
-							<li>
-								<a href="extra-icons-linecons.html">
-									<span class="title">Linecons</span>
-								</a>
-							</li>
-							<li>
-								<a href="extra-icons-elusive.html">
-									<span class="title">Elusive</span>
-								</a>
-							</li>
-							<li>
-								<a href="extra-icons-meteocons.html">
-									<span class="title">Meteocons</span>
-								</a>
-							</li>
-						</ul>
-					</li>
-					<li>
-						<a href="extra-maps-google.html">
-							<span class="title">Maps</span>
-						</a>
-						<ul>
-							<li>
-								<a href="extra-maps-google.html">
-									<span class="title">Google Maps</span>
-								</a>
-							</li>
-							<li>
-								<a href="extra-maps-advanced.html">
-									<span class="title">Advanced Map</span>
-								</a>
-							</li>
-							<li>
-								<a href="extra-maps-vector.html">
-									<span class="title">Vector Map</span>
-								</a>
-							</li>
-						</ul>
-					</li>
-					<li>
-						<a href="extra-gallery.html">
-							<span class="title">Gallery</span>
+							<i class="fa fa-plus"></i>
+							<span class="title">添加用户</span>
+							<!-- <span class="label label-warning pull-right">4</span> -->
 						</a>
 					</li>
 					<li>
-						<a href="extra-calendar.html">
-							<span class="title">Calendar</span>
-						</a>
-					</li>
-					<li>
-						<a href="extra-profile.html">
-							<span class="title">Profile</span>
-						</a>
-					</li>
-					<li>
-						<a href="extra-login.html">
-							<span class="title">Login</span>
-						</a>
-					</li>
-					<li>
-						<a href="extra-lockscreen.html">
-							<span class="title">Lockscreen</span>
-						</a>
-					</li>
-					<li>
-						<a href="extra-login-light.html">
-							<span class="title">Login Light</span>
-						</a>
-					</li>
-					<li>
-						<a href="extra-timeline.html">
-							<span class="title">Timeline</span>
-						</a>
-					</li>
-					<li>
-						<a href="extra-timeline-center.html">
-							<span class="title">Timeline Centerd</span>
-						</a>
-					</li>
-					<li>
-						<a href="extra-notes.html">
-							<span class="title">Notes</span>
-						</a>
-					</li>
-					<li>
-						<a href="extra-image-crop.html">
-							<span class="title">Image Crop</span>
-						</a>
-					</li>
-					<li>
-						<a href="extra-portlets.html">
-							<span class="title">Portlets</span>
-						</a>
-					</li>
-					<li>
-						<a href="blank-sidebar.html">
-							<span class="title">Blank Page</span>
-						</a>
-					</li>
-					<li>
-						<a href="extra-search.html">
-							<span class="title">Search</span>
-						</a>
-					</li>
-					<li>
-						<a href="extra-invoice.html">
-							<span class="title">Invoice</span>
-						</a>
-					</li>
-					<li>
-						<a href="extra-not-found.html">
-							<span class="title">404 Page</span>
-						</a>
-					</li>
-					<li>
-						<a href="extra-tocify.html">
-							<span class="title">Tocify</span>
-						</a>
-					</li>
-					<li>
-						<a href="extra-loader.html">
-							<span class="title">Loading Progress</span>
-						</a>
-					</li>
-					<li>
-						<a href="extra-page-loading-ol.html">
-							<span class="title">Page Loading Overlay</span>
-						</a>
-					</li>
-					<li>
-						<a href="extra-notifications.html">
-							<span class="title">Notifications</span>
-						</a>
-					</li>
-					<li>
-						<a href="extra-nestable-lists.html">
-							<span class="title">Nestable Lists</span>
-						</a>
-					</li>
-					<li>
-						<a href="extra-scrollable.html">
-							<span class="title">Scrollable</span>
+						<a href="extra-icons-fontawesome.html">
+							<i class="fa fa-key"></i>
+							<span class="title">权限管理</span>
+							<!-- <span class="label label-warning pull-right">4</span> -->
 						</a>
 					</li>
 				</ul>
 			</li>
-
+			<li>
+				<a href="extra-gallery.html">
+					<i class="fa fa-group"></i>
+					<span class="title">团队管理</span>
+					<!-- <span class="label label-purple pull-right hidden-collapsed">New 12</span> -->
+				</a>
+				<ul>
+					<li>
+						<a href="extra-icons-fontawesome.html">
+							<i class="fa fa-list-ul"></i>
+							<span class="title">团队列表</span>
+							<!-- <span class="label label-warning pull-right">4</span> -->
+						</a>
+					</li>
+					<li>
+						<a href="extra-icons-fontawesome.html">
+							<i class="fa fa-plus"></i>
+							<span class="title">添加团队</span>
+							<!-- <span class="label label-warning pull-right">4</span> -->
+						</a>
+					</li>
+					<li>
+						<a href="extra-icons-fontawesome.html">
+							<i class="fa fa-file-o"></i>
+							<span class="title">团队申请</span>
+							<span class="label label-warning pull-right">4</span>
+						</a>
+					</li>
+				</ul>
+			</li>
+			<li>
+				<a href="extra-gallery.html">
+					<i class="fa fa-github-alt"></i>
+					<span class="title">项目管理</span>
+					<!-- <span class="label label-purple pull-right hidden-collapsed">New 12</span> -->
+				</a>
+				<ul>
+					<li>
+						<a href="extra-icons-fontawesome.html">
+							<i class="fa fa-list-ul"></i>
+							<span class="title">项目列表</span>
+							<!-- <span class="label label-warning pull-right">4</span> -->
+						</a>
+					</li>
+					<li>
+						<a href="extra-icons-fontawesome.html">
+							<i class="fa fa-plus"></i>
+							<span class="title">发布项目</span>
+							<!-- <span class="label label-warning pull-right">4</span> -->
+						</a>
+					</li>
+					<li>
+						<a href="extra-icons-fontawesome.html">
+							<i class="fa fa-file-o"></i>
+							<span class="title">项目申请</span>
+							<span class="label label-warning pull-right">4</span>
+						</a>
+					</li>
+				</ul>
+			</li>
+			<li>
+				<a href="extra-gallery.html">
+					<i class="fa fa-gears"></i>
+					<span class="title">系统设置</span>
+					<!-- <span class="label label-purple pull-right hidden-collapsed">New 12</span> -->
+				</a>
+				<ul>
+					<li>
+						<a href="extra-icons-fontawesome.html">
+							<i class="fa fa-info"></i>
+							<span class="title">网站信息</span>
+							<!-- <span class="label label-warning pull-right">4</span> -->
+						</a>
+					</li>
+					<li>
+						<a href="extra-icons-fontawesome.html">
+							<i class="fa fa-paper-plane"></i>
+							<span class="title">导航管理</span>
+						</a>
+					</li>
+					<li>
+						<a href="extra-icons-fontawesome.html">
+							<i class="fa fa-tags"></i>
+							<span class="title">标签管理</span>
+						</a>
+					</li>
+					<li>
+						<a href="extra-icons-fontawesome.html">
+							<i class="fa fa-copy"></i>
+							<span class="title">数据库备份</span>
+							<!-- <span class="label label-warning pull-right">4</span> -->
+						</a>
+						<ul>
+							<li>
+								<a href="">
+									<i></i>
+									<span class="title">备份数据库</span>
+								</a>
+							</li>
+							<li>
+								<a href="">
+									<i></i>
+									<span class="title">还原数据库</span>
+								</a>
+							</li>
+						</ul>
+					</li>
+				</ul>
+			</li>
 		</ul>
 	</div>
 </div>
