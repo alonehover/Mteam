@@ -12,4 +12,9 @@ class RightController extends Controller {
     	# code...
     	$this->display();
     }
+
+    public function list_role(){
+    	# code...
+    	$this->display();
+    }
 }

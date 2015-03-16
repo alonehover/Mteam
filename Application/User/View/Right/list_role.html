@@ -23,7 +23,7 @@
 				<div class="col-md-12">
 					<div class="panel panel-default">
 						<div class="panel-heading">
-							<h3 class="panel-title">total：<strong class="text-primary">{$team_sum}</strong>队</h3>
+							<h3 class="panel-title">total：<strong class="text-primary"><notempty name="user_sum">{$user_sum}<else/>0</notempty></strong>项</h3>
 							<div class="panel-options">
 								<a href="#">
 									<i class="linecons-cog"></i>
@@ -32,35 +32,27 @@
 									<span class="collapse-icon">&ndash;</span>
 									<span class="expand-icon">+</span>
 								</a>
-								<a href="#" data-toggle="reload">
-									<i class="fa-rotate-right"></i>
-								</a>
 								<a href="#" data-toggle="remove">
 									&times;
 								</a>
 							</div>
 						</div>
 						<div class="panel-body">
-
 							<div class="table-responsive" data-pattern="priority-columns" data-focus-btn-icon="fa-asterisk" data-sticky-table-header="true" data-add-display-all-btn="true" data-add-focus-btn="true">
-								<table cellspacing="0" class="table table-small-font table-bordered table-striped">
+								<table cellspacing="0" class="table table-small-font table-bordered table-striped text-center">
 									<thead>
 										<tr>
-											<th data-priority="1">团队名称</th>
-											<th data-priority="3">申请人</th>
-											<th data-priority="1">申请理由</th>
-											<th data-priority="6">操作</th>
+											<th class="text-center">角色名称</th>
+											<th class="text-center" data-priority="1">角色状态</th>
+											<th class="text-center" data-priority="3">操作</th>
 										</tr>
 									</thead>
 									<tbody>
-										<volist name="teams" id="v">
+										<volist name="list_right" id="v">
 											<tr>
-												<td>{$v.apply_name}</td>
-												<td>{$v.apply_time|date="Y-m-d",###}</td>
-												<td>{$v.apply_auther}</td>
-												<td>{$v.apply_reason}</td>
-												<td>{$v.apply_status}</td>
-												<td><a class="btn btn-success" href="">通过</a><a class="btn btn-danger" href="">撤销</a></td>
+												<td>{$v.title}</td>
+												<td>{$v.status}</td>
+												<td><a href="" class="btn btn-warning">编辑权限</a><a href="" class="btn btn-danger">删除</a></td>
 											</tr>	
 										</volist>	
 									</tbody>

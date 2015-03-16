@@ -2,9 +2,14 @@
 namespace User\Controller;
 use Think\Controller;
 class TeamController extends Controller {
-    public function list_all(){
-    	$data=M('auther')->select();
+    public function list_team(){
+    	$data=M('group')->select();
     	$this->assign('teams',$data);
-    	$this->display('Team/list_all');
+    	$this->display();
+    }
+
+    public function list_apply(){
+    	# code...
+    	$this->display();
     }
 }
