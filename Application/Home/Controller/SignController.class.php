@@ -59,6 +59,7 @@ class SignController extends Controller {
 				'password' 	=> MD5(I('password')),
 				'stunum' 	=> I('stunum'),
 				'email'		=> I('email'),
+				'logintime' => time(),
 			);
 			$flag=$this->check_stunum(I('stunum'));
 			if($flag){

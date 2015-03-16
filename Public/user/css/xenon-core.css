@@ -3794,7 +3794,7 @@ body.chat-open #chat {
 }
 .cbr-replaced .cbr-state span {
   display: block;
-  background: url(../images/ok.png) no-repeat center center;
+  background: url(../img/ok.png) no-repeat center center;
   background-image: none;
   position: absolute;
   left: 0;
@@ -3804,7 +3804,7 @@ body.chat-open #chat {
   cursor: pointer;
 }
 .cbr-replaced.cbr-checked span {
-  background-image: url(../images/ok.png);
+  background-image: url(../img/ok.png);
 }
 .cbr-replaced.cbr-disabled {
   zoom: 1;
@@ -3842,7 +3842,7 @@ body.chat-open #chat {
   border-color: #323435;
 }
 .cbr-replaced.cbr-primary.cbr-checked span {
-  background-image: url(../images/ok-white-full.png);
+  background-image: url(../img/ok-white-full.png);
 }
 .cbr-replaced.cbr-primary.cbr-radio .cbr-state {
   background: #fff;
@@ -3858,7 +3858,7 @@ body.chat-open #chat {
   border-color: #68b828;
 }
 .cbr-replaced.cbr-secondary.cbr-checked span {
-  background-image: url(../images/ok-white-full.png);
+  background-image: url(../img/ok-white-full.png);
 }
 .cbr-replaced.cbr-secondary.cbr-checked.cbr-radio .cbr-state span {
   background: #68b828;
@@ -3871,7 +3871,7 @@ body.chat-open #chat {
   border-color: #8dc63f;
 }
 .cbr-replaced.cbr-success.cbr-checked span {
-  background-image: url(../images/ok-white-full.png);
+  background-image: url(../img/ok-white-full.png);
 }
 .cbr-replaced.cbr-success.cbr-checked.cbr-radio .cbr-state span {
   background: #8dc63f;
@@ -3884,7 +3884,7 @@ body.chat-open #chat {
   border-color: #40bbea;
 }
 .cbr-replaced.cbr-info.cbr-checked span {
-  background-image: url(../images/ok-white-full.png);
+  background-image: url(../img/ok-white-full.png);
 }
 .cbr-replaced.cbr-info.cbr-checked.cbr-radio .cbr-state span {
   background: #40bbea;
@@ -3897,7 +3897,7 @@ body.chat-open #chat {
   border-color: #cc3f44;
 }
 .cbr-replaced.cbr-danger.cbr-checked span {
-  background-image: url(../images/ok-white-full.png);
+  background-image: url(../img/ok-white-full.png);
 }
 .cbr-replaced.cbr-danger.cbr-checked.cbr-radio .cbr-state span {
   background: #cc3f44;
@@ -3910,7 +3910,7 @@ body.chat-open #chat {
   border-color: #ffba00;
 }
 .cbr-replaced.cbr-warning.cbr-checked span {
-  background-image: url(../images/ok-white-full.png);
+  background-image: url(../img/ok-white-full.png);
 }
 .cbr-replaced.cbr-warning.cbr-checked.cbr-radio .cbr-state span {
   background: #ffba00;
@@ -3923,7 +3923,7 @@ body.chat-open #chat {
   border-color: #d5080f;
 }
 .cbr-replaced.cbr-red.cbr-checked span {
-  background-image: url(../images/ok-white-full.png);
+  background-image: url(../img/ok-white-full.png);
 }
 .cbr-replaced.cbr-red.cbr-checked.cbr-radio .cbr-state span {
   background: #d5080f;
@@ -3936,7 +3936,7 @@ body.chat-open #chat {
   border-color: #0e62c7;
 }
 .cbr-replaced.cbr-blue.cbr-checked span {
-  background-image: url(../images/ok-white-full.png);
+  background-image: url(../img/ok-white-full.png);
 }
 .cbr-replaced.cbr-blue.cbr-checked.cbr-radio .cbr-state span {
   background: #0e62c7;
@@ -3949,7 +3949,7 @@ body.chat-open #chat {
   border-color: #7c38bc;
 }
 .cbr-replaced.cbr-purple.cbr-checked span {
-  background-image: url(../images/ok-white-full.png);
+  background-image: url(../img/ok-white-full.png);
 }
 .cbr-replaced.cbr-purple.cbr-checked.cbr-radio .cbr-state span {
   background: #7c38bc;
@@ -3962,7 +3962,7 @@ body.chat-open #chat {
   border-color: #ff6264;
 }
 .cbr-replaced.cbr-pink.cbr-checked span {
-  background-image: url(../images/ok-white-full.png);
+  background-image: url(../img/ok-white-full.png);
 }
 .cbr-replaced.cbr-pink.cbr-checked.cbr-radio .cbr-state span {
   background: #ff6264;
@@ -3975,7 +3975,7 @@ body.chat-open #chat {
   border-color: #f7aa47;
 }
 .cbr-replaced.cbr-orange.cbr-checked span {
-  background-image: url(../images/ok-white-full.png);
+  background-image: url(../img/ok-white-full.png);
 }
 .cbr-replaced.cbr-orange.cbr-checked.cbr-radio .cbr-state span {
   background: #f7aa47;
@@ -3988,7 +3988,7 @@ body.chat-open #chat {
   border-color: #00b19d;
 }
 .cbr-replaced.cbr-turquoise.cbr-checked span {
-  background-image: url(../images/ok-white-full.png);
+  background-image: url(../img/ok-white-full.png);
 }
 .cbr-replaced.cbr-turquoise.cbr-checked.cbr-radio .cbr-state span {
   background: #00b19d;
@@ -4001,7 +4001,7 @@ body.chat-open #chat {
   border-color: #fcd036;
 }
 .cbr-replaced.cbr-yellow.cbr-checked span {
-  background-image: url(../images/ok-white-full.png);
+  background-image: url(../img/ok-white-full.png);
 }
 .cbr-replaced.cbr-yellow.cbr-checked.cbr-radio .cbr-state span {
   background: #fcd036;
@@ -4014,7 +4014,7 @@ body.chat-open #chat {
   border-color: #c8c8c8;
 }
 .cbr-replaced.cbr-gray.cbr-checked span {
-  background-image: url(../images/ok-white-full.png);
+  background-image: url(../img/ok-white-full.png);
 }
 .cbr-replaced.cbr-gray.cbr-checked.cbr-radio .cbr-state span {
   background: #c8c8c8;
@@ -4023,7 +4023,7 @@ body.chat-open #chat {
   background: #fff;
 }
 .cbr-replaced.cbr-gray.cbr-checked span {
-  background-image: url(../images/ok.png);
+  background-image: url(../img/ok.png);
 }
 .cbr-replaced + label {
   padding-left: 5px;

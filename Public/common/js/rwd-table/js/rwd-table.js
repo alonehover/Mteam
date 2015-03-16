@@ -123,7 +123,7 @@
         this.$btnToolbar = $('<div class="btn-toolbar" />');
 
         this.$dropdownGroup = $('<div class="btn-group dropdown-btn-group pull-right" />');
-        this.$dropdownBtn = $('<button class="btn btn-default dropdown-toggle" data-toggle="dropdown">Display <span class="caret"></span></button>');
+        this.$dropdownBtn = $('<button class="btn btn-default dropdown-toggle" data-toggle="dropdown">显示部分<span class="caret"></span></button>');
         this.$dropdownContainer = $('<ul class="dropdown-menu"/>');
 
         // Focus btn
@@ -157,7 +157,7 @@
          // Display-all btn
         if(this.options.addDisplayAllBtn) {
             // Create display-all btn
-            this.$displayAllBtn = $('<button class="btn btn-default">Display all</button>');
+            this.$displayAllBtn = $('<button class="btn btn-default">显示全部</button>');
             // Add display-all btn to dropdown-btn-group
             this.$dropdownGroup.append(this.$displayAllBtn);
 

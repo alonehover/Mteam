@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<include file="Common:headlink"/>	
+
+	<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+	<!--[if lt IE 9]>
+		<script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+		<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+	<![endif]-->
+	
+</head>
+<body class="page-body">
+	<include file="Common:setting"/>
+	<div class="page-container">
+		<!-- left menu -->
+		<include file="Common:leftnav"/>
+		<!-- end -->
+
+		<div class="main-content">
+			<include file="Common:headnav"/>
+			<div class="row">
+				<div class="col-md-12">
+					<div class="panel panel-default">
+						<div class="panel-heading">
+							<h3 class="panel-title">total：<strong class="text-primary">{$user_sum}</strong>人</h3>
+							<div class="panel-options">
+								<a href="#">
+									<i class="linecons-cog"></i>
+								</a>
+								<a href="#" data-toggle="panel">
+									<span class="collapse-icon">&ndash;</span>
+									<span class="expand-icon">+</span>
+								</a>
+								<a href="#" data-toggle="remove">
+									&times;
+								</a>
+							</div>
+						</div>
+						<div class="panel-body">
+							<div class="table-responsive" data-pattern="priority-columns" data-focus-btn-icon="fa-asterisk" data-sticky-table-header="true" data-add-display-all-btn="true" data-add-focus-btn="true">
+								<table cellspacing="0" class="table table-small-font table-bordered table-striped text-center">
+									<thead>
+										<tr>
+											<th class="text-center">学号</th>
+											<th class="text-center" data-priority="1">用户名</th>
+											<th class="text-center" data-priority="3">性别</th>
+											<th class="text-center" data-priority="3">专业</th>
+											<th class="text-center" data-priority="3">技能</th>
+											<th class="text-center" data-priority="1">团队</th>
+											<th class="text-center" data-priority="6">注册时间</th>
+											<th class="text-center" data-priority="3">操作</th>
+										</tr>
+									</thead>
+									<tbody>
+										<volist name="authers" id="v">
+											<tr>
+												<td>{$v.stunum}</td>
+												<td>{$v.authername}</td>
+												<td>{$v.sex}</td>
+												<td>{$v.major}</td>
+												<td>{$v.skill}</td>
+												<td>{$v.group}</td>
+												<td>{$v.logintime|date="Y-m-d",###}</td>
+												<td><a href="" class="btn btn-warning">禁用</a><a href="" class="btn btn-danger">删除</a></td>
+											</tr>	
+										</volist>	
+									</tbody>
+								</table>
+							</div>
+							<script type="text/javascript">
+							// This JavaScript Will Replace Checkboxes in dropdown toggles
+							jQuery(document).ready(function($)
+							{
+								setTimeout(function()
+								{
+									$(".checkbox-row input").addClass('cbr');
+									cbr_replace();
+								}, 0);
+							});
+							</script>
+						</div>
+					</div>
+				</div>
+			</div>
+			<include file="Common:footnav"/>
+		</div>
+	<include file="Common:footlink"/>
+	<script src="__PUBLIC__/common/js/rwd-table/js/rwd-table.min.js"></script>
+</body>
+</html>
