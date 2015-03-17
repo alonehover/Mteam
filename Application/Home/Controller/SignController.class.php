@@ -30,7 +30,7 @@ class SignController extends Controller {
 				$result=M('auther')->where($data)->find();
 				if($result){
 					session('stunum',I('stunum'));
-					$this->success('欢迎进入MTeam!',U('Home/Index/index'));
+					$this->success('欢迎进入MGroup!',U('Home/Index/index'));
 				}else{
 					$this->error('密码错误，请重新输入');
 				}

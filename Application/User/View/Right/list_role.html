@@ -23,7 +23,6 @@
 				<div class="col-md-12">
 					<div class="panel panel-default">
 						<div class="panel-heading">
-							<h3 class="panel-title">total：<strong class="text-primary"><notempty name="user_sum">{$user_sum}<else/>0</notempty></strong>项</h3>
 							<div class="panel-options">
 								<a href="#">
 									<i class="linecons-cog"></i>
@@ -38,21 +37,24 @@
 							</div>
 						</div>
 						<div class="panel-body">
-							<div class="table-responsive" data-pattern="priority-columns" data-focus-btn-icon="fa-asterisk" data-sticky-table-header="true" data-add-display-all-btn="true" data-add-focus-btn="true">
+							<a href="{:U('User/Right/add_role')}" class="btn btn-primary"><i class="fa fa-plus"></i> 添加</a>
+							<div class="table-responsive">
 								<table cellspacing="0" class="table table-small-font table-bordered table-striped text-center">
 									<thead>
 										<tr>
 											<th class="text-center">角色名称</th>
 											<th class="text-center" data-priority="1">角色状态</th>
+											<th class="text-center" data-priority="1">角色描述</th>
 											<th class="text-center" data-priority="3">操作</th>
 										</tr>
 									</thead>
 									<tbody>
-										<volist name="list_right" id="v">
+										<volist name="list_role" id="v">
 											<tr>
 												<td>{$v.title}</td>
-												<td>{$v.status}</td>
-												<td><a href="" class="btn btn-warning">编辑权限</a><a href="" class="btn btn-danger">删除</a></td>
+												<td><if condition="$v.status eq 1">可用<else/>禁用</if></td>
+												<td>{$v.desc}</td>
+												<td><a href="" class="btn btn-success">编辑权限</a><a href="" class="btn btn-danger">删除</a></td>
 											</tr>	
 										</volist>	
 									</tbody>

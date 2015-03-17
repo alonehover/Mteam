@@ -28,7 +28,7 @@
 			</div>
 		</header>
 		<ul id="main-menu" class="main-menu">
-			<li>
+			<li <if condition="'User' eq $Think.CONTROLLER_NAME">class="opened active"</if>>
 				<a href="extra-gallery.html">
 					<i class="linecons-user"></i>
 					<span class="title">用户管理</span>
@@ -58,7 +58,7 @@
 					</li>
 				</ul>
 			</li>
-			<li>
+			<li <if condition="'Right' eq $Think.CONTROLLER_NAME">class="opened active"</if>>
 				<a href="extra-gallery.html">
 					<i class="fa fa-key"></i>
 					<span class="title">权限管理</span>
@@ -73,13 +73,6 @@
 						</a>
 					</li>
 					<li>
-						<a href="{:U('User/Right/add_right')}">
-							<i class="fa fa-plus"></i>
-							<span class="title">添加权限</span>
-							<!-- <span class="label label-warning pull-right">4</span> -->
-						</a>
-					</li>
-					<li>
 						<a href="{:U('User/Right/list_role')}">
 							<i class="fa fa-child"></i>
 							<span class="title">角色管理</span>
@@ -88,7 +81,7 @@
 					</li>
 				</ul>
 			</li>
-			<li>
+			<li <if condition="'Team' eq $Think.CONTROLLER_NAME">class="opened active"</if>>
 				<a href="#">
 					<i class="fa fa-group"></i>
 					<span class="title">团队管理</span>
@@ -118,7 +111,7 @@
 					</li>
 				</ul>
 			</li>
-			<li>
+			<li <if condition="'Project' eq $Think.CONTROLLER_NAME">class="opened active"</if>>
 				<a href="extra-gallery.html">
 					<i class="fa fa-github-alt"></i>
 					<span class="title">项目管理</span>
@@ -148,7 +141,7 @@
 					</li>
 				</ul>
 			</li>
-			<li>
+			<li <if condition="'Setting' eq $Think.CONTROLLER_NAME">class="opened active"</if>>
 				<a href="extra-gallery.html">
 					<i class="fa fa-gears"></i>
 					<span class="title">系统设置</span>
