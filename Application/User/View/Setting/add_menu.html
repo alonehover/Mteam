@@ -35,11 +35,11 @@
 							</div>
 						</div>
 						<div class="panel-body">
-							<form role="form" class="form-horizontal">
+							<form role="form" class="form-horizontal" method="post" action="{:U('User/Setting/add_menu_action')}">
 								<div class="form-group">
 									<label class="col-sm-2 control-label" for="field-1">菜单名称：</label>
 									<div class="col-sm-10">
-										<input type="text" class="form-control" id="field-1" placeholder="">
+										<input type="text" class="form-control" id="field-1" name="menu_name" placeholder="">
 									</div>
 								</div>
 								<div class="form-group-separator"></div>
@@ -47,7 +47,7 @@
 								<div class="form-group">
 									<label class="col-sm-2 control-label" for="field-1">菜单URL：</label>
 									<div class="col-sm-10">
-										<input type="text" class="form-control" id="field-1" placeholder="">
+										<input type="text" class="form-control" id="field-1" name="menu_url" placeholder="">
 									</div>
 								</div>
 								<div class="form-group-separator"></div>
@@ -55,7 +55,7 @@
 								<div class="form-group">
 									<label class="col-sm-2 control-label" for="field-1">排序：</label>
 									<div class="col-sm-10">
-										<input type="text" class="form-control" id="field-1" placeholder="">
+										<input type="text" class="form-control" id="field-1" name="menu_sort" value="0" placeholder="">
 									</div>
 								</div>
 								<div class="form-group-separator"></div>
@@ -64,11 +64,11 @@
 									<label class="col-sm-2 control-label">是否隐藏：</label>
 									<div class="col-sm-10">
 										<label class="radio-inline">
-											<input type="radio" name="radio-2" checked>
+											<input type="radio" name="menu_hide" value="1">
 											是
 										</label>
 										<label class="radio-inline">
-											<input type="radio" name="radio-2">
+											<input type="radio" name="menu_hide" value="0" checked>
 											否
 										</label>
 									</div>
@@ -79,11 +79,11 @@
 									<label class="col-sm-2 control-label">仅作为权限分类：</label>
 									<div class="col-sm-10">
 										<label class="radio-inline">
-											<input type="radio" name="radio-2" checked>
+											<input type="radio" name="menu_right" value="1">
 											是
 										</label>
 										<label class="radio-inline">
-											<input type="radio" name="radio-2">
+											<input type="radio" name="menu_right" value="0" checked>
 											否
 										</label>
 									</div>
@@ -104,25 +104,10 @@
 										});
 									</script>
 									<div class="col-sm-10">
-										<select class="form-control" id="sboxit-1">
-											<option value="al">Albania</option>
-											<option value="au">Australia</option>
-											<option value="bd">Bandgladesh</option>
-											<option value="br">Brasil</option>
-											<option value="ca">Canada</option>
-											<option value="cn">China</option>
-											<option value="de">Germany</option>
-											<option value="fr">France</option>
-											<option value="gr">Greece</option>
-											<option value="jp">Japan</option>
-											<option value="xk">Kosovo</option>
-											<option value="nl">Netherlands</option>
-											<option value="no">Norway</option>
-											<option value="ru">Russia</option>
-											<option value="se">Sweden</option>
-											<option value="tr">Turkey</option>
-											<option value="uk">United Kingdom</option>
-											<option value="us">United States</option>
+										<select class="form-control" id="sboxit-1" name="menu_parent">
+											<volist name="menus" id="menu">
+												<option value="{$menu.id}">{$menu.title_show}</option>
+											</volist>
 										</select>
 									</div>
 								</div>
@@ -131,7 +116,7 @@
 								<div class="form-group">
 									<label class="col-sm-2 control-label" for="field-5">菜单描述：</label>
 									<div class="col-sm-10">
-										<textarea class="form-control autogrow" cols="5" id="field-5" name="role_desc" placeholder="少于200字"></textarea>
+										<textarea class="form-control autogrow" cols="5" id="field-5" name="menu_desc" placeholder="少于200字"></textarea>
 									</div>
 								</div>
 								<div class="form-group-separator"></div>

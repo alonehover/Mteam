@@ -1,13 +1,13 @@
 <?php
 namespace User\Controller;
 use Think\Controller;
-class UserController extends Controller {
+class AuthorController extends Controller {
     public function list_user(){
-    	$data=M('auther')->select();
-    	$sum=M('auther')->count();
+    	$data=M('author')->select();
+    	$sum=M('author')->count();
     	$this->assign('user_sum',$sum);
-    	$this->assign('authers',$data);
-    	$this->display('User/list_user');
+    	$this->assign('authors',$data);
+    	$this->display();
     }
 
     public function add_user(){

@@ -47,4 +47,9 @@ class RightController extends Controller {
         }
            
     }
+
+    public function edit_role_right(){
+        # code...
+        
+    }
 }

@@ -47,19 +47,20 @@
 											<th class="text-center" data-priority="3">排序</th>
 											<th class="text-center" data-priority="1">URL</th>
 											<th class="text-center" data-priority="3">是否隐藏</th>
-											<th class="text-center" data-priority="3">是否菜单</th>
+											<th class="text-center" data-priority="3">仅为权限</th>
 											<th class="text-center" data-priority="3">操作</th>
 										</tr>
 									</thead>
 									<tbody>
-										<volist name="list_right" id="v">
+										<volist name="menus" id="v">
 											<tr>
-												<td>{$v.name}</td>
 												<td>{$v.title}</td>
-												<td>{$v.type}</td>
-												<td>{$v.status}</td>
-												<td>{$v.condition}</td>
-												<td><a href="" class="btn btn-warning">禁用</a><a href="" class="btn btn-danger">删除</a></td>
+												<td>{$v.pid}</td>
+												<td>{$v.sort}</td>
+												<td>{$v.url}</td>
+												<td><if condition="$v.hide eq 1">是<else/>否</if></td>
+												<td><if condition="$v.is_right eq 1">是<else/>否</if></td>
+												<td><a href="" class="btn btn-success btn-xs">编辑</a>  <a href="" class="btn btn-danger btn-xs">删除</a></td>
 											</tr>	
 										</volist>	
 									</tbody>

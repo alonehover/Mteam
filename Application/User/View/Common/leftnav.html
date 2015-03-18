@@ -28,7 +28,7 @@
 			</div>
 		</header>
 		<ul id="main-menu" class="main-menu">
-			<li <if condition="'User' eq $Think.CONTROLLER_NAME">class="opened active"</if>>
+			<li <if condition="'Author' eq $Think.CONTROLLER_NAME">class="opened active"</if>>
 				<a href="extra-gallery.html">
 					<i class="linecons-user"></i>
 					<span class="title">用户管理</span>
@@ -36,23 +36,16 @@
 				</a>
 				<ul>
 					<li>
-						<a href="{:U('User/User/list_user')}">
+						<a href="{:U('User/Author/list_user')}">
 							<i class="fa fa-list-ul"></i>
 							<span class="title">用户列表</span>
 							<!-- <span class="label label-warning pull-right">4</span> -->
 						</a>
 					</li>
 					<li>
-						<a href="{:U('User/User/add_user')}">
+						<a href="{:U('User/Author/add_user')}">
 							<i class="fa fa-plus"></i>
 							<span class="title">添加用户</span>
-							<!-- <span class="label label-warning pull-right">4</span> -->
-						</a>
-					</li>
-					<li>
-						<a href="extra-icons-fontawesome.html">
-							<i class="fa fa-key"></i>
-							<span class="title">添加管理员</span>
 							<!-- <span class="label label-warning pull-right">4</span> -->
 						</a>
 					</li>
