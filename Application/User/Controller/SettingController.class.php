@@ -8,6 +8,7 @@ class SettingController extends Controller {
     	$this->display();
     }
 
+
     public function add_menu(){
     	# code...
     	$this->assign('info',array('pid'=>I('pid')));
@@ -63,5 +64,25 @@ class SettingController extends Controller {
     	return $flag?true:false;
     }
 
+
+    public function del_menu(){
+        if (IS_POST) {
+            $data['id']=I('id');
+            $flag=M('menu')->where($data)->delete();
+            if ($flag) {
+               echo json_encode(1);
+            }else{
+                echo json_encode(0);
+            }
+        }
+    }
+
+    public function edit_menu(){
+        # code...
+        $data['id']=I('id');
+        $edit=M('menu')->where($data)->find();
+        $this->assign('edit',$edit);
+        $this->display();
+    }
 
 }
