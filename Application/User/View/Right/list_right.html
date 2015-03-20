@@ -23,7 +23,6 @@
 				<div class="col-md-12">
 					<div class="panel panel-default">
 						<div class="panel-heading">
-							<!-- <h3 class="panel-title">total：<strong class="text-primary"><notempty name="user_sum">{$user_sum}<else/>0</notempty></strong>项</h3> -->
 							<div class="panel-options">
 								<a href="#">
 									<i class="linecons-cog"></i>
@@ -38,7 +37,6 @@
 							</div>
 						</div>
 						<div class="panel-body">
-							<a href="{:U('User/Right/add_right')}" class="btn btn-primary"><i class="fa fa-plus"></i> 添加</a>
 							<div class="table-responsive">
 								<table cellspacing="0" class="table table-small-font table-bordered table-striped text-center">
 									<thead>
@@ -46,19 +44,19 @@
 											<th class="text-center">标识</th>
 											<th class="text-center" data-priority="1">名称</th>
 											<th class="text-center" data-priority="3">类型</th>
-											<th class="text-center" data-priority="3">规则</th>
 											<th class="text-center" data-priority="3">状态</th>
+											<th class="text-center" data-priority="3">规则</th>
 											<th class="text-center" data-priority="3">操作</th>
 										</tr>
 									</thead>
 									<tbody>
-										<volist name="list_right" id="v">
+										<volist name="list_rule" id="v">
 											<tr>
 												<td>{$v.name}</td>
 												<td>{$v.title}</td>
 												<td>{$v.type}</td>
 												<td>{$v.status}</td>
-												<td>{$v.condition}</td>
+												<td>{$v.condition|default="无"}</td>
 												<td><a href="" class="btn btn-warning btn-xs">禁用</a><a href="" class="btn btn-danger btn-xs">删除</a></td>
 											</tr>	
 										</volist>	

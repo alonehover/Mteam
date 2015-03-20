@@ -49,7 +49,22 @@ class RightController extends Controller {
     }
 
     public function edit_role_right(){
+
+    }
+
+
+    public function del_role(){
         # code...
-        
+        if (IS_POST) {
+            # code...
+            $data['id']=I('id');
+            $flag=M('auth_group')->where($data)->delete();
+            if ($flag) {
+                # code...
+                echo json_encode(1);
+            }else{
+                echo json_encode(0);
+            }
+        }
     }
 }

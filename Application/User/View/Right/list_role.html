@@ -54,23 +54,13 @@
 												<td>{$v.title}</td>
 												<td><if condition="$v.status eq 1">可用<else/>禁用</if></td>
 												<td>{$v.desc}</td>
-												<td><a href="" class="btn btn-success btn-xs">编辑权限</a><a href="" class="btn btn-danger btn-xs">删除</a></td>
+												<td><a href="{:U('User/Right/edit_role_right',array('id'=>$v['id']))}" class="btn btn-success btn-xs">编辑权限</a>
+												<a href="" class="btn btn-danger btn-xs btn-del" data-id="{$v.id}">删除</a></td>
 											</tr>	
 										</volist>	
 									</tbody>
 								</table>
 							</div>
-							<script type="text/javascript">
-							// This JavaScript Will Replace Checkboxes in dropdown toggles
-							jQuery(document).ready(function($)
-							{
-								setTimeout(function()
-								{
-									$(".checkbox-row input").addClass('cbr');
-									cbr_replace();
-								}, 0);
-							});
-							</script>
 						</div>
 					</div>
 				</div>
@@ -79,5 +69,27 @@
 		</div>
 	<include file="Common:footlink"/>
 	<script src="__PUBLIC__/common/js/rwd-table/js/rwd-table.min.js"></script>
+	<script type="text/javascript">
+		$(function(){
+			$('.btn-del').click(function(){
+				var id = $(this).attr('data-id');
+				var tr = $(this).parents('tr');
+				$.ajax({
+					type:'post',
+					url:'{:U("User/Right/del_role")}',
+					data:{'id':id},
+					cache:false,
+					datatype:"json",
+					success:function(data){
+						if (data==1) {
+							tr.slideUp('slow',function(){$(this).remove();});
+						}else{
+							alert('操作有误，请重试！');
+						}
+					}
+				});
+			});
+		});
+	</script>
 </body>
 </html>
