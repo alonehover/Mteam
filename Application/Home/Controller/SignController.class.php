@@ -27,7 +27,7 @@ class SignController extends Controller {
 			);
 			$flag=$this->check_stunum(I('stunum'));
 			if($flag){
-				$result=M('auther')->where($data)->find();
+				$result=M('author')->where($data)->find();
 				if($result){
 					session('stunum',I('stunum'));
 					$this->success('欢迎进入MGroup!',U('Home/Index/index'));
@@ -65,7 +65,7 @@ class SignController extends Controller {
 			if($flag){
 				$this->error('学号已存在');
 			}else{
-				$status=M('auther')->add($data);
+				$status=M('author')->add($data);
 				$this->success('恭喜你，注册成功~ 快去登录吧',U('Home/Sign/signin'));
 			}
 		}
@@ -84,7 +84,7 @@ class SignController extends Controller {
 	public function check_stunum($val)
 	{
 		$str = array('stunum' => $val);
-		$flag=M('auther')->where($str)->select();
+		$flag=M('author')->where($str)->select();
 		$result = ($flag) ? 1 : 0 ;		//已存在输出1  
 		return $result;
 	}
