@@ -56,13 +56,14 @@
 										<volist name="authors" id="v">
 											<tr>
 												<td>{$v.stunum}</td>
-												<td>{$v.authername}</td>
+												<td>{$v.authorname}</td>
 												<td>{$v.sex}</td>
 												<td>{$v.major}</td>
 												<td>{$v.skill}</td>
-												<td>{$v.group}</td>
+												<td>{$v.group|default="无"}</td>
 												<td>{$v.logintime|date="Y-m-d",###}</td>
-												<td><a href="" class="btn btn-warning">禁用</a><a href="" class="btn btn-danger">删除</a></td>
+												<td><a href="" class="btn btn-warning btn-xs">禁用</a>
+												<a href="#" data-id="{$v.id}" class="btn btn-danger btn-xs btn-del">删除</a></td>
 											</tr>	
 										</volist>	
 									</tbody>
@@ -87,5 +88,27 @@
 		</div>
 	<include file="Common:footlink"/>
 	<script src="__PUBLIC__/common/js/rwd-table/js/rwd-table.min.js"></script>
+	<script type="text/javascript">
+		$(function(){
+			$('.btn-del').click(function(){
+				var id = $(this).attr('data-id');
+				var tr = $(this).parents('tr');
+				$.ajax({
+					type:'post',
+					url:'{:U("User/Author/del_user")}',
+					data:{'id':id},
+					cache:false,
+					datatype:"json",
+					success:function(data){
+						if (data==1) {
+							tr.slideUp('slow',function(){$(this).remove();});
+						}else{
+							alert('操作有误，请重试！');
+						}
+					}
+				});
+			});
+		});
+	</script>
 </body>
 </html>
