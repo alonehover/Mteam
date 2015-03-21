@@ -9,3 +9,11 @@ body {
 
 a {
 }
+
+.bg-info,.bg-success{
+	color: #666;
+}
+
+.form-row{
+	margin-top: 20px;
+}

@@ -1,7 +1,7 @@
 <?php
 namespace User\Controller;
 use Think\Controller;
-class RightController extends Controller {
+class RightController extends UserController {
     public function list_right(){
     	$data=M('auth_rule')->select();
     	$this->assign('list_rule',$data);
@@ -54,17 +54,35 @@ class RightController extends Controller {
 
 
     public function del_role(){
-        # code...
         if (IS_POST) {
-            # code...
             $data['id']=I('id');
             $flag=M('auth_group')->where($data)->delete();
             if ($flag) {
-                # code...
                 echo json_encode(1);
             }else{
                 echo json_encode(0);
             }
         }
+    }
+
+
+    /**
+     * 访问授权页面
+     */
+    public function access(){
+        // $this->updateRules();
+        // $auth_group = M('AuthGroup')->where( array('status'=>array('egt','0')) )->getfield('id,id,title,rules');
+        $node_list   = $this->returnNodes();
+        // $map         = array('module'=>'admin','type'=>AuthRuleModel::RULE_MAIN,'status'=>1);
+        // $main_rules  = M('AuthRule')->where($map)->getField('name,id');
+        // $map         = array('module'=>'admin','type'=>AuthRuleModel::RULE_URL,'status'=>1);
+        // $child_rules = M('AuthRule')->where($map)->getField('name,id');
+        // p($node_list);
+        // $this->assign('main_rules', $main_rules);
+        // $this->assign('auth_rules', $child_rules);
+        $this->assign('node_list',  $node_list);
+        // $this->assign('auth_group', $auth_group);
+        // $this->assign('this_group', $auth_group[(int)$_GET['group_id']]);
+        $this->display();
     }
 }

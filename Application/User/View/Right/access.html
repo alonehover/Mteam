@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <include file="Common:headlink"/> 
+
+  <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+  <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+  <![endif]-->
+  
+</head>
+<body class="page-body">
+  <include file="Common:setting"/>
+  <div class="page-container">
+    <!-- left menu -->
+    <include file="Common:leftnav"/>
+    <!-- end -->
+    <div class="main-content">
+      <include file="Common:headnav"/>
+        <div class="row">
+          <div class="col-md-12">
+
+            <!-- <form action="{:U('AuthManager/writeGroup')}" enctype="application/x-www-form-urlencoded" method="POST" class="form-horizontal auth-form">
+            	<volist name="node_list" id="node" >
+            		<dl class="checkmod">
+            			<dt class="bg-primary">
+            				<label class="checkbox">
+                      <input class="auth_rules rules_all form-control" type="checkbox" name="rules[]" value="<?php echo $main_rules[$node['url']] ?>">{$node.title}
+                    </label>
+            			</dt>
+            			<dd class="bd">
+            				<present name="node['child']">
+              				<volist name="node['child']" id="child" >
+                          <div class="rule_check">
+                              <div>
+                                  <label class="checkbox" <notempty name="child['tip']">title='{$child.tip}'</notempty>>
+                                  <input class="auth_rules rules_row" type="checkbox" name="rules[]" value="<?php echo $auth_rules[$child['url']] ?>"/>{$child.title}
+                                  </label>
+                              </div>
+                             <notempty name="child['operator']">
+                                 <span class="divsion">&nbsp;</span>
+                                 <span class="child_row">
+                                     <volist name="child['operator']" id="op">
+                                         <label class="checkbox" <notempty name="op['tip']">title='{$op.tip}'</notempty>>
+                                             <input class="auth_rules" type="checkbox" name="rules[]" value="<?php echo $auth_rules[$op['url']] ?>"/>{$op.title}
+                                         </label>
+                                     </volist>
+                                 </span>
+                             </notempty>
+                          </div>
+              				</volist>
+            				</present>
+            			</dd>
+            		</dl>
+            	</volist>
+                  <input type="hidden" name="id" value="{$this_group.id}" />
+                  <button type="submit" class="btn submit-btn ajax-post" target-form="auth-form">确 定</button>
+                  <button class="btn btn-return" onclick="javascript:history.back(-1);return false;">返 回</button>
+            </form> -->
+              <div class="panel panel-default" data-collapsed="0">
+            
+                <div class="panel-heading">
+                  <div class="panel-title">
+                    编辑权限
+                  </div>
+                </div>
+                
+                <div class="panel-body">
+                  <div class="row">
+                  <form action="{:U('AuthManager/writeGroup')}" enctype="application/x-www-form-urlencoded" method="POST" class="form-horizontal auth-form">
+                    <volist name="node_list" id="node" >
+                        <div class="col-md-12 bg-primary">
+                          <input tabindex="5" type="checkbox" class="icheck-12" id="node-{$key}" name="rules[]" value="<?php echo $main_rules[$node['url']] ?>">
+                          <label for="node-{$key}" ><strong>{$node.title}</strong></label>
+                        </div>
+                        
+                        <div class="col-sm-12 bg-info">
+                          <ul class="list-inline">
+                              <present name="node['child']">
+                                <volist name="node['child']" id="child" >
+                                    <li>
+                                        <input tabindex="6" type="checkbox" class="icheck-12" id="rule-{$key}" name="rules[]" value="<?php echo $auth_rules[$child['url']] ?>">
+                                        <label for="rule-{$key}" <notempty name="child['tip']">title='{$child.tip}'</notempty>>{$child.title}</label>
+                                    </li>  
+                                </volist>
+                              </present>
+                          </ul>
+                        </div>
+                      </volist>
+                      <div class="col-sm-12 form-row">
+                        <input type="hidden" name="id" value="{$this_group.id}" />
+                        <button type="submit" class="btn btn-primary ajax-post" target-form="auth-form">确 定</button>
+                        <button class="btn btn-return" onclick="javascript:history.back(-1);return false;">返 回</button>
+                      </div>
+
+                    </form>
+                  </div>
+                </div>
+              </div>
+          </div>
+        </div>
+    </div>
+  </div>
+  <include file="Common:footnav"/>
+  <include file="Common:footlink"/>
+  <link rel="stylesheet" href="__PUBLIC__/common/js/icheck/skins/all.css">
+  <script src="__PUBLIC__/common/js/icheck/icheck.min.js"></script>
+  <script type="text/javascript">
+      jQuery(document).ready(function($)
+      {
+        
+        $('input.icheck-12').iCheck({
+          checkboxClass: 'icheckbox_flat-green',
+          radioClass: 'iradio_flat-grey'
+        });
+        
+      });
+      </script>
+  </body>
+</html>
