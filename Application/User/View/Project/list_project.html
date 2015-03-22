@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<include file="Common:headlink"/>	
+
+	<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+	<!--[if lt IE 9]>
+		<script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+		<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+	<![endif]-->
+	
+</head>
+<body class="page-body">
+	<include file="Common:setting"/>
+	<div class="page-container">
+		<!-- left menu -->
+		<include file="Common:leftnav"/>
+		<!-- end -->
+
+		<div class="main-content">
+			<include file="Common:headnav"/>
+			<div class="row">
+				<div class="col-md-12">
+					<div class="panel panel-default">
+						<div class="panel-heading">
+							<div class="panel-options">
+								<a href="#" data-toggle="panel">
+									<span class="collapse-icon">&ndash;</span>
+									<span class="expand-icon">+</span>
+								</a>
+								<a href="#" data-toggle="remove">
+									&times;
+								</a>
+							</div>
+						</div>
+						<div class="panel-body">
+							<div class="table-responsive">
+								<table cellspacing="0" class="table table-small-font table-bordered table-striped text-center">
+									<thead>
+										<tr>
+											<th class="text-center" data-priority="1">项目名称</th>
+											<th class="text-center" data-priority="3">发布时间</th>
+											<th class="text-center" data-priority="3">状态</th>
+											<th class="text-center" data-priority="3">操作</th>
+										</tr>
+									</thead>
+									<tbody>
+										<volist name="list_right" id="v">
+											<tr>
+												<td>{$v.name}</td>
+												<td>{$v.time}</td>
+												<td>{$v.status}</td>
+												<td><a href="" class="btn btn-warning">禁用</a><a href="" class="btn btn-danger">删除</a></td>
+											</tr>	
+										</volist>	
+									</tbody>
+								</table>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<include file="Common:footnav"/>
+		</div>
+	<include file="Common:footlink"/>
+	<script src="__PUBLIC__/common/js/rwd-table/js/rwd-table.min.js"></script>
+</body>
+</html>
