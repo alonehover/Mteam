@@ -10,4 +10,9 @@ class ProjectController extends Controller {
     	# code...
     	$this->display('list_apply');
     }
+
+    public function add_project(){
+    	# code...
+    	$this->display();
+    }
 }
