@@ -40,15 +40,17 @@
 										<tr>
 											<th class="text-center" data-priority="1">项目名称</th>
 											<th class="text-center" data-priority="3">发布时间</th>
+											<th class="text-center" data-priority="3">申请截止时间</th>
 											<th class="text-center" data-priority="3">状态</th>
 											<th class="text-center" data-priority="3">操作</th>
 										</tr>
 									</thead>
 									<tbody>
-										<volist name="list_right" id="v">
+										<volist name="project" id="v">
 											<tr>
 												<td>{$v.name}</td>
-												<td>{$v.time}</td>
+												<td>{$v.public_time|date='Y-m-d',###}</td>
+												<td>{$v.apply_endtime|date='Y-m-d',###}</td>
 												<td>{$v.status}</td>
 												<td><a href="" class="btn btn-warning">禁用</a><a href="" class="btn btn-danger">删除</a></td>
 											</tr>	
