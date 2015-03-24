@@ -49,7 +49,24 @@ class RightController extends UserController {
     }
 
     public function edit_role_right(){
+        if(isset($_POST['rules'])){
+            sort($_POST['rules']);
+            $_POST['rules']  = implode( ',' , array_unique($_POST['rules']));
+        }
 
+        $AuthGroup   =  M('auth_group');
+
+            if ( empty($_POST['id']) ) {
+                $r = $AuthGroup->add($_POST);
+            }else{
+                $r = $AuthGroup->save($_POST);
+            }
+
+            if($r===false){
+                $this->error('操作失败');
+            } else{
+                $this->success('操作成功!',U('list_role'));
+            }
     }
 
 
@@ -71,18 +88,19 @@ class RightController extends UserController {
      */
     public function access(){
         // $this->updateRules();
-        // $auth_group = M('AuthGroup')->where( array('status'=>array('egt','0')) )->getfield('id,id,title,rules');
+        // p(I('group_id'));
+        $auth_group = M('auth_group')->where( array('status'=>array('egt','0')) )->getfield('id,title,rules');
         $node_list   = $this->returnNodes();
         // $map         = array('module'=>'admin','type'=>AuthRuleModel::RULE_MAIN,'status'=>1);
-        // $main_rules  = M('AuthRule')->where($map)->getField('name,id');
+        $main_rules  = M('auth_rule')->where($map)->getField('name,id');
         // $map         = array('module'=>'admin','type'=>AuthRuleModel::RULE_URL,'status'=>1);
-        // $child_rules = M('AuthRule')->where($map)->getField('name,id');
+        $child_rules = M('AuthRule')->where($map)->getField('name,id');
         // p($node_list);
-        // $this->assign('main_rules', $main_rules);
-        // $this->assign('auth_rules', $child_rules);
+        $this->assign('main_rules', $main_rules);
+        $this->assign('auth_rules', $child_rules);
         $this->assign('node_list',  $node_list);
         // $this->assign('auth_group', $auth_group);
-        // $this->assign('this_group', $auth_group[(int)$_GET['group_id']]);
+        $this->assign('this_group', $auth_group[(int)$_GET['group_id']]);
         $this->display();
     }
 }
