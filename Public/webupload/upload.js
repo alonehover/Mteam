@@ -184,7 +184,12 @@
             }
             return !denied;
         });
+        //上传成功返回参数
+        uploader.on('uploadSuccess',function(file,response) {
+            var data=response.file;
+            $('#picurl').val(data['savename']);
 
+        })
         uploader.on('dialogOpen', function() {
             console.log('here');
         });
@@ -458,7 +463,6 @@
                     stats = uploader.getStats();
                     if ( stats.successNum ) {
                         alert( '上传成功' );
-                        console.log(uploader.getFiles());
                     } else {
                         // 没有成功的图片，重设
                         state = 'done';

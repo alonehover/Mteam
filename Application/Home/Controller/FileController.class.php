@@ -21,31 +21,11 @@ class FileController extends Controller {
             // 实例化上传类
             $upload = new \Think\Upload($setting);
             $info   =   $upload->upload();    
-            die('{"jsonrpc" : "2.0", "error" : {"code": 100, "message": "Failed to open temp directory."}, "id" : "id"}');
-            // if($info){
-            //         /* 记录文件信息 */
-            //         foreach ($info as $value) {
-            //             //在模板里的url路径
-            //             $return['filename']=$value['savename'];
-            //             $return['url']= substr($setting['rootPath'],0).$value['savepath'].$value['savename'];
-            //             $return['s_url']=substr($setting['rootPath'],0).$value['savepath'].'s_'.$value['savename'];
-            //             //文件存放的路径
-            //             $return['path'] = substr($setting['rootPath'],0).$value['savepath']; 
-            //             $return['status'] = 1;
-            //             $return = array_merge($info['download'], $return);
-            //         }
-            //         /*生成缩略图*/
-            //         $image = new Image();
-            //         $image->open($return['url'])->thumb(400,400)->save($return['s_url']);
-            //     }else {
-            //         $return['status'] = 0;
-            //         $return['info']   = $upload->getError();
-            //     }
-            // echo $info;
+
             /* 返回JSON数据 */
-            // $this->ajaxReturn($return);
-            // echo json_encode($return);  //两种方式
-            // die('{"jsonrpc" : "2.0", "result" : $return, "id" : "id"}');
+            $this->ajaxReturn($info);
+            // echo json_encode($info);  //两种方式
+            // die('{"jsonrpc" : "2.0", "result" : $info, "id" : "id"}');
         }
     }
 
