@@ -29,6 +29,7 @@ class SignController extends Controller {
 			if($flag){
 				$result=M('author')->where($data)->find();
 				if($result){
+					session('leader',$result['leader']);
 					session('stunum',I('stunum'));
 					$this->success('欢迎进入MGroup!',U('Home/Index/index'));
 				}else{

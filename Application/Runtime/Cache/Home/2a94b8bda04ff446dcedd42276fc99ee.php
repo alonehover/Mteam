@@ -35,7 +35,17 @@
           <li <?php if('project' == $active): ?>class="active"<?php endif; ?>><a href="<?php echo U('Home/Project/index');?>">项目</a></li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
-        <?php if(session('stunum')): ?><li><a href="<?php echo U('User/Index/index');?>" tppabs=""><?php echo (session('stunum')); ?></a></li>
+        <?php if(session('stunum')): ?><li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><?php echo (session('stunum')); ?><span class="caret"></a>
+            <ul class="dropdown-menu" role="menu">
+            <?php if(session('leader') == 0): ?><li><a href="<?php echo U('Home/Team/team_creat');?>">创建团队</a></li>
+            <?php elseif(session('leader') == 1): ?>
+              <li><a href="<?php echo U('User/Index/index');?>">管理团队</a></li>
+            <?php else: ?>
+              <li><a href="#">我的团队</a></li><?php endif; ?>
+              <li><a href="#">个人信息</a></li>
+            </ul>
+          </li>
           <li><a href="<?php echo U('Home/Sign/signout');?>" tppabs="">[退出]</a></li>
         <?php else: ?>
           <li><a href="<?php echo U('Home/Sign/signin');?>" tppabs="">登录</a></li>
