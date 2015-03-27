@@ -75,8 +75,8 @@ class SignController extends Controller {
 	 * 退出
 	 */
 	public function signout(){
-		session('stunum',null);
-		$this->success('正在注销账户，感谢您的使用');
+		session(null);
+		$this->success('正在注销账户，感谢您的使用',U('Home/Index/index'));
 	}
 
 	/**

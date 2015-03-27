@@ -146,10 +146,33 @@
             formData: {
                 uid: 123
             },
+            compress: {
+                width: 540,
+                height: 270,
+
+                // 图片质量，只有type为`image/jpeg`的时候才有效。
+                quality: 90,
+
+                allowMagnify: false,
+
+                // 是否允许裁剪。
+                crop: true,
+
+                // 是否保留头部meta信息。
+                preserveHeaders: true,
+
+                // 如果发现压缩后文件大小比原来还大，则使用原来图片
+                // 此属性可能会影响图片自动纠正功能
+                noCompressIfLarger: false,
+
+                // 单位字节，如果图片大小小于此值，不会采用压缩。
+                compressSize: 20
+            },
             dnd: '#dndArea',
             paste: '#uploader',
             swf: './Uploader.swf',
             chunked: false,
+            auto:true,
             chunkSize: 512 * 1024,
             server: url,
             // runtimeOrder: 'flash',
@@ -184,10 +207,12 @@
             }
             return !denied;
         });
+
         //上传成功返回参数
         uploader.on('uploadSuccess',function(file,response) {
             var data=response.file;
-            $('#picurl').val(data['savename']);
+            console.log(data);
+            $('#picurl').val(data['savepath']+data['savename']);
 
         })
         uploader.on('dialogOpen', function() {

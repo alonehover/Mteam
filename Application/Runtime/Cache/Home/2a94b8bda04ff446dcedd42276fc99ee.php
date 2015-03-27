@@ -67,56 +67,19 @@
         <p>这些团队是根据团队完成项目数和好评度筛选出来的</p>
       </div>
       <div class="row">
-        <div class="col-sm-6 col-md-4 col-lg-3 ">
-          <div class="thumbnail text-center">
-            <a href="" title="" target="_blank" onclick="">
-              <img class="lazy" src="/Mteam/Public/home/img/sm_bg.jpg" width="300" height="150" data-src="/Mteam/Public/img/sm_bg.jpg" alt="Mteam">
-            </a>
-            <div class="caption">
-              <h3> 
-                <a href="" title="" target="_blank" onclick="">Mteam虚位以待<br></a>
-              </h3>
-              <span class="label label-info">php</span>
-              <span class="label label-info">java</span>
+      <?php if(is_array($team)): $i = 0; $__LIST__ = $team;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$v): $mod = ($i % 2 );++$i;?><div class="col-sm-6 col-md-4 col-lg-3 ">
+            <div class="thumbnail text-center">
+              <a href="<?php echo U('Home/Team/team_info',array('id'=>$v['id']));?>" title="<?php echo ($v["name"]); ?>" target="_blank" onclick="">
+                <img class="lazy" src="<?php if(empty($v["img"])): ?>/Mteam/Public/home/img/sm_bg.jpg<?php else: echo ($v["img"]); endif; ?>" width="300" height="150" data-src="<?php echo ($v["img"]); ?>" alt="<?php echo ($v["name"]); ?>">
+              </a>
+              <div class="caption">
+                <h3> 
+                  <a href="<?php echo U('Home/Team/team_info',array('id'=>$v['id']));?>" title="" target="_blank" onclick=""><?php echo ($v["name"]); ?><br></a>
+                </h3>
+                <?php if(is_array($v["skill"])): $i = 0; $__LIST__ = $v["skill"];if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?><li><span class="label label-info"><?php echo ($vo); ?></span></li><?php endforeach; endif; else: echo "" ;endif; ?>
+              </div>
             </div>
-          </div>
-        </div>
-        <div class="col-sm-6 col-md-4 col-lg-3 ">
-          <div class="thumbnail text-center">
-            <a href="" title="" target="_blank" onclick="">
-              <img class="lazy" src="/Mteam/Public/home/img/sm_bg.jpg" width="300" height="150" data-src="/Mteam/Public/img/sm_bg.jpg" alt="Mteam">
-            </a>
-            <div class="caption">
-              <h3> 
-                <a href="" title="" target="_blank" onclick="">Mteam虚位以待<br></a>
-              </h3>
-            </div>
-          </div>
-        </div>
-        <div class="col-sm-6 col-md-4 col-lg-3 ">
-          <div class="thumbnail text-center">
-            <a href="" title="" target="_blank" onclick="">
-              <img class="lazy" src="/Mteam/Public/home/img/sm_bg.jpg" width="300" height="150" data-src="/Mteam/Public/img/sm_bg.jpg" alt="Mteam">
-            </a>
-            <div class="caption">
-              <h3> 
-                <a href="" title="" target="_blank" onclick="">Mteam虚位以待<br></a>
-              </h3>
-            </div>
-          </div>
-        </div>
-        <div class="col-sm-6 col-md-4 col-lg-3 ">
-          <div class="thumbnail text-center">
-            <a href="" title="" target="_blank" onclick="">
-              <img class="lazy" src="/Mteam/Public/home/img/sm_bg.jpg" width="300" height="150" data-src="/Mteam/Public/img/sm_bg.jpg" alt="Mteam">
-            </a>
-            <div class="caption">
-              <h3> 
-                <a href="" title="" target="_blank" onclick="">Mteam虚位以待<br></a>
-              </h3>
-            </div>
-          </div>
-        </div>
+          </div><?php endforeach; endif; else: echo "" ;endif; ?>
       </div>
     </div>
     <footer class="footer">

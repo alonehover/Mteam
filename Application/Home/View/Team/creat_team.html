@@ -3,6 +3,8 @@
   <head>
 	  <include file="Common:headlink"/>
 	  <link rel="stylesheet" type="text/css" href="__PUBLIC__/home/css/home.css"/>
+ 		<link rel="stylesheet" href="__PUBLIC__/user/css/xenon-forms.css">
+	  	<!-- <link rel="stylesheet" href="__PUBLIC__/user/css/xenon-core.css"> -->
   </head>
   <body>
   	<include file="Common:headnav"/>
@@ -30,6 +32,35 @@
 				    </div>
 				  </div>
 				  <div class="form-group">
+						<label class="col-sm-2 control-label">技能选择：</label>
+							
+						<script type="text/javascript">
+							jQuery(document).ready(function($)
+							{
+								$("#s2example-2").select2({
+									placeholder: '选择擅长的技能',
+									allowClear: true
+								}).on('select2-open', function()
+								{
+									// Adding Custom Scrollbar
+									$(this).data('select2').results.addClass('overflow-hidden').perfectScrollbar();
+								});
+								
+							});
+						</script>
+						<div class="col-sm-9">
+							<select class="form-control" id="s2example-2" name="skill[]" multiple>
+								<option></option>
+								<optgroup label="请选择熟悉的技能">
+									<volist name="skill" id="v">
+										<option value="{$v.name}">{$v.name}</option>
+									</volist>
+								</optgroup>
+							</select>
+						</div>
+					</div>
+					<div class="form-group-separator"></div>
+				  <div class="form-group">
 				  	<label for="inputPassword3" class="col-sm-2 control-label">团队封面：</label>
 
 					<div class="col-sm-9">
@@ -37,7 +68,7 @@
 			                <div class="queueList">
 			                    <div id="dndArea" class="placeholder">
 			                        <div id="filePicker"></div>
-			                        <p>或将照片拖到这里</p>
+			                        <p>或将照片拖到这里,图片比例w:h为2:1</p>
 			                    </div>
 			                </div>
 			                <div class="statusBar" style="display:none;">
@@ -80,5 +111,13 @@
   	<link rel="stylesheet" type="text/css" href="__PUBLIC__/webupload/style.css">
   	<script type="text/javascript" src="__PUBLIC__/webupload/webuploader.js"></script>
   	<script type="text/javascript" src="__PUBLIC__/webupload/upload.js"></script>
+
+  	<link rel="stylesheet" href="__PUBLIC__/common/js/select2/select2.css">
+	<link rel="stylesheet" href="__PUBLIC__/common/js/daterangepicker/daterangepicker-bs3.css">
+	<link rel="stylesheet" href="__PUBLIC__/common/js/select2/select2-bootstrap.css">
+
+	<script src="__PUBLIC__/common/js/tagsinput/bootstrap-tagsinput.min.js"></script>
+	<script src="__PUBLIC__/common/js/select2/select2.min.js"></script>
+	<script src="__PUBLIC__/common/js/datepicker/bootstrap-datepicker.js"></script>
   </body>
 </html>

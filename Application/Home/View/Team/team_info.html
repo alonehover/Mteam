@@ -11,167 +11,74 @@
 		  	<div class="col-sm-6">
 		  		<div class="row">
 				    <a href="#" class="thumbnail">
-				      <img src="__PUBLIC__/home/img/sm_bg.jpg" alt="..." class="img-rounded">
+				      <img src="<empty name='info.img'>__PUBLIC__/home/img/sm_bg.jpg<else/>{$info.img}</empty>" alt="..." class="img-rounded">
 				    </a>
 				</div>
 		  	</div>
 		  	<div class="col-sm-6">
 				<h1>Mteam</h1><hr/>
 				<ul class="list-inline">
-					<li><strong>团队成员：</strong><span class="text-primary">5</span>人</li>
-					<li><strong>完成项目：</strong><span class="text-primary">5</span>个</li>
+					<li><strong>团队成员：</strong><span class="text-primary">{$info.per_num|default="0"}</span>人</li>
+					<li><strong>完成项目：</strong><span class="text-primary">{$info.pro_num|default="0"}</span>个</li>
 				</ul>
 				<ul class="list-inline">
 					<li><strong>擅长：</strong></li>
-					<li><span class="label label-info">php</span></li>
-					<li><span class="label label-info">php</span></li>
+					<volist name="info.skill" id="v">
+						<li><span class="label label-info">{$v}</span></li>
+					</volist>
 				</ul>
 				<blockquote>
 					<p>团队宣言：</p>
-				  	<p>Lorem ipsum dolor sit amet, consectetur </p>
+				  	<p>{$info.declare|default="无"}</p>
 				</blockquote>
 
 				<a href="" class="btn btn-default btn-lg">申请加入</a>
-				<a href="" class="btn btn-default btn-lg"><i class="fa fa-thumbs-o-up"></i> <span class="badge">224</span></a>
+				<a href="" class="btn btn-default btn-lg"><i class="fa fa-thumbs-o-up"></i> <span class="badge">{$info.praise}</span></a>
 		  	</div>  	  		
 	  	</div>
 	  	<div class="row">
 	  		<div class="page-header"><blockquote><p>团队简介</p></blockquote></div>
-	  		<p></p>
-	  		<div class="alert alert-warning text-center" role="alert">暂无相关简介</div>
+	  		<empty name="info.info">  
+	  			<div class="alert alert-warning text-center" role="alert">暂无相关简介</div>
+	  		<else/>
+	  			<p>{$info.info}</p>
+	  		</empty>
 	  	</div>
 		<div class="row">
 			<div class="page-header"><blockquote><p>团队成员</p></blockquote></div>
-			<div class="col-sm-2 col-xs-6">
-			    <div class="thumbnail">
-			      <img src="__PUBLIC__/home/img/untitled.png" alt="..." class="img-circle">
-			      <div class="caption text-center">
-			        <kbd>Thumbnail label</kbd>
-			        <p>个人简介</p>
-			      </div>
-			    </div>
-			</div>
-			<div class="col-sm-2 col-xs-6">
-				<div class="thumbnail">
-			      <img src="__PUBLIC__/home/img/untitled.png" alt="..." class="img-circle">
-			      <div class="caption text-center">
-			        <kbd>Thumbnail label</kbd>
-			        <p>个人简介</p>
-			      </div>
-			    </div>
-			</div>
-			<div class="col-sm-2 col-xs-6">
-				<div class="thumbnail">
-			      <img src="__PUBLIC__/home/img/untitled.png" alt="..." class="img-circle">
-			      <div class="caption text-center">
-			        <kbd>Thumbnail label</kbd>
-			        <p>个人简介</p>
-			      </div>
-			    </div>
-			</div>
-			<div class="col-sm-2 col-xs-6">
-				<div class="thumbnail">
-			      <img src="__PUBLIC__/home/img/untitled.png" alt="..." class="img-circle">
-			      <div class="caption text-center">
-			        <kbd>Thumbnail label</kbd>
-			        <p>个人简介</p>
-			      </div>
-			    </div>
-			</div>
+			<volist name="info.per_info" id="v">
+				<div class="col-sm-2 col-xs-6">
+				    <div class="thumbnail">
+				      <img src="<empty name='v.img'>__PUBLIC__/home/img/untitled.png<else/>{$v.img}</empty>" alt="..." class="img-circle">
+				      <div class="caption text-center">
+				        <kbd>{$v.authorname|default="无名小卒"}</kbd>
+				        <p>{$v.info|default="暂无介绍"}</p>
+				      </div>
+				    </div>
+				</div>
+			</volist>
 		</div>
 		<div class="row">
 	  		<div class="page-header"><blockquote><p>完成项目</p></blockquote></div>
-	  		<div class="col-sm-3 col-xs-6">
-				<div class="thumbnail">
-			      <div class="caption text-center">
-			        <div class="caption-head" title="很厉害很厉害很厉害很厉害很">很厉害很厉害很厉害很厉害很</div>
-			        <dl class="dl-team">
-						<dt>完成时间：</dt>
-						<dd>53天</dd>
-						<dt>用户评价：</dt>
-						<dd class="">很厉害很厉害很厉害很厉害很厉害很厉害很厉害很厉害很厉害很厉害</dd>
-					</dl>
-			      </div>
-			    </div>
-			</div>
-			<div class="col-sm-3 col-xs-6">
-				<div class="thumbnail">
-			      <div class="caption text-center">
-			        <div class="caption-head" title="很厉害很厉害很厉害很厉害很">很厉害很厉害很厉害很厉害很</div>
-			        <dl class="dl-team">
-						<dt>完成时间：</dt>
-						<dd>53天</dd>
-						<dt>用户评价：</dt>
-						<dd class="">很厉害很厉害很厉害很厉害很厉害很厉害很厉害很厉害很厉害很厉害</dd>
-					</dl>
-			      </div>
-			    </div>
-			</div>
-			<div class="col-sm-3 col-xs-6">
-				<div class="thumbnail">
-			      <div class="caption text-center">
-			        <div class="caption-head" title="很厉害很厉害很厉害很厉害很">很厉害很厉害很厉害很厉害很</div>
-			        <dl class="dl-team">
-						<dt>完成时间：</dt>
-						<dd>53天</dd>
-						<dt>用户评价：</dt>
-						<dd class="">s</dd>
-					</dl>
-			      </div>
-			    </div>
-			</div>
-			<div class="col-sm-3 col-xs-6">
-				<div class="thumbnail">
-			      <div class="caption text-center">
-			        <div class="caption-head" title="很厉害很厉害很厉害很厉害很">很厉害很厉害很厉害很厉害很</div>
-			        <dl class="dl-team">
-						<dt>完成时间：</dt>
-						<dd>53天</dd>
-						<dt>用户评价：</dt>
-						<dd class="">s</dd>
-					</dl>
-			      </div>
-			    </div>
-			</div>
-			<div class="col-sm-3 col-xs-6">
-				<div class="thumbnail">
-			      <div class="caption text-center">
-			        <div class="caption-head" title="很厉害很厉害很厉害很厉害很">很厉害很厉害很厉害很厉害很</div>
-			        <dl class="dl-team">
-						<dt>完成时间：</dt>
-						<dd>53天</dd>
-						<dt>用户评价：</dt>
-						<dd class="">很厉害很厉害很厉害很厉害很厉害很厉害很厉害很厉害很厉害很厉害</dd>
-					</dl>
-			      </div>
-			    </div>
-			</div>
-			<div class="col-sm-3 col-xs-6">
-				<div class="thumbnail">
-			      <div class="caption text-center">
-			        <div class="caption-head" title="很厉害很厉害很厉害很厉害很">很厉害很厉害很厉害很厉害很</div>
-			        <dl class="dl-team">
-						<dt>完成时间：</dt>
-						<dd>53天</dd>
-						<dt>用户评价：</dt>
-						<dd class="">很厉害很厉害很厉害很厉害很厉害很厉害很厉害很厉害很厉害很厉害</dd>
-					</dl>
-			      </div>
-			    </div>
-			</div>
-			<div class="col-sm-3 col-xs-6">
-				<div class="thumbnail">
-			      <div class="caption text-center">
-			        <div class="caption-head" title="很厉害很厉害很厉害很厉害很">很厉害很厉害很厉害很厉害很</div>
-			        <dl class="dl-team">
-						<dt>完成时间：</dt>
-						<dd>53天</dd>
-						<dt>用户评价：</dt>
-						<dd class="">很厉害很厉害很厉害很厉害很厉害很厉害很厉害很厉害很厉害很厉害</dd>
-					</dl>
-			      </div>
-			    </div>
-			</div>
+	  		<if condition="info.pro_num eq 0">
+	  			<div class="alert alert-warning text-center" role="alert">暂无完成项目</div>
+	  		<else/>
+		  		<volist name="info.pro_info" id="vo">
+			  		<div class="col-sm-3 col-xs-6">
+						<div class="thumbnail">
+					      <div class="caption text-center">
+					        <div class="caption-head" title="很厉害很厉害很厉害很厉害很">{$vo.name}</div>
+					        <dl class="dl-team">
+								<dt>完成时间：</dt>
+								<dd><empty name="vo.end_days">正在进行<else/>{$vo.end_days}天</empty></dd>
+								<dt>用户评价：</dt>
+								<dd class=""><empty name="vo.evaluate">暂无评价<else/>{$vo.evaluate}</empty></dd>
+							</dl>
+					      </div>
+					    </div>
+					</div>
+				</volist>
+			</if>
 	  	</div>
   	</div>
     <include file="Common:footnav"/>

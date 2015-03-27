@@ -22,22 +22,25 @@
   	<div class="container">
   		<div class="item-content">
 		  	<div class="row">
-		  		<div class="col-sm-6 col-md-4 col-lg-3 ">
-		          <div class="thumbnail text-center">
-		            <a href="{:U('Home/Team/team_info')}" title="" target="_blank" onclick="">
-		              <img class="lazy" src="__PUBLIC__/home/img/sm_bg.jpg" width="300" height="150" data-src="__PUBLIC__/img/sm_bg.jpg" alt="Mteam">
-		            </a>
-		            <div class="caption">
-		              <h3> 
-		                <a href="{:U('Home/Team/team_info')}" title="" target="_blank" onclick="">MGroup虚位以待<br></a>
-		              </h3>
-		              <ul class="list-inline">
-		              	<li><span class="label label-info">php</span></li>
-		              	<li><span class="label label-info">php</span></li>
-		              </ul>
-		            </div>
-		          </div>
-		        </div>
+		  		<volist name="team" id="v">	
+			  		<div class="col-sm-6 col-md-4 col-lg-3 ">
+			          <div class="thumbnail text-center">
+			            <a href="{:U('Home/Team/team_info',array('id'=>$v['id']))}" title="" target="_blank" onclick="">
+			              <img class="lazy" src="<empty name='v.img'>__PUBLIC__/home/img/sm_bg.jpg<else/>{$v.img}</empty>" width="300" height="150" data-src="{$v.img}" alt="{$v.name}">
+			            </a>
+			            <div class="caption">
+			              <h3> 
+			                <a href="{:U('Home/Team/team_info',array('id'=>$v['id']))}" title="" target="_blank" onclick="">{$v.name}<br></a>
+			              </h3>
+			              <ul class="list-inline">
+			              	<volist name="v.skill" id="vo">	
+			              		<li><span class="label label-info">{$vo}</span></li>
+			              	</volist>
+			              </ul>
+			            </div>
+			          </div>
+			        </div>
+			    </volist>
 		  	</div>
 	  	</div>
 	</div>
