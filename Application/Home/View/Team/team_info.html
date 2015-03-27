@@ -32,9 +32,51 @@
 				  	<p>{$info.declare|default="无"}</p>
 				</blockquote>
 
-				<a href="" class="btn btn-default btn-lg">申请加入</a>
-				<a href="" class="btn btn-default btn-lg"><i class="fa fa-thumbs-o-up"></i> <span class="badge">{$info.praise}</span></a>
-		  	</div>  	  		
+				<a href="#" class="btn btn-default btn-lg" id="join">申请加入</a>
+				<a href="#" class="btn btn-default btn-lg" id="praise"><i class="fa fa-thumbs-o-up"></i> <span class="badge">{$info.praise}</span></a>
+		  	</div> 
+		  	<script type="text/javascript">
+			  	$(function(){
+			  		var id = '{$info.id}';
+			  		var name= '{$Think.session.stunum}'
+			  		$('#praise').click(function(){
+			  			if (name!="") {
+				  			$.ajax({
+				  				type:'post',
+				  				url:'{:U("Home/Team/add_praise")}',
+				  				data:{'id':id,'stu':name},
+				  				cache: false,
+				  				success: function(data){
+				  					if (data!="error") {
+				  						$('#praise').addClass('disabled').children('i').attr('class','fa fa-thumbs-up');
+				  						$('.badge').html(data);
+				  					}else{
+				  						console.log(1);
+				  					}
+				  				}
+				  			});
+			  			};
+			  			
+			  		});
+
+			  		$('#join').click(function(){
+			  			$.ajax({
+				  				type:'post',
+				  				url:'{:U("Home/Team/apply_team")}',
+				  				data:{'id':id,'stu':name},
+				  				cache: false,
+				  				success: function(data){
+				  					if (data=="success") {
+				  						$('#join').attr('class','btn btn-primary btn-lg').text("审核中...");
+				  					}else{
+				  						console.log(1);
+				  					}
+				  				}
+				  			});
+			  		});
+			  	})
+
+		  	</script> 	  		
 	  	</div>
 	  	<div class="row">
 	  		<div class="page-header"><blockquote><p>团队简介</p></blockquote></div>

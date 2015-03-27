@@ -80,12 +80,48 @@ class TeamController extends Controller {
 		$num=M('author')->where($map)->getField('stunum,authorname,img,info,skill');
 		return $num;
 	}
-
+	//获取团队项目
 	public function get_team_project($id)
 	{
 		# code...
 		$map['group']=$id;
 		$num=M('project')->where($map)->select();
 		return $num;
+	}
+
+	//点赞
+	public function add_praise(){
+		if (IS_POST) {
+			$map['id']=I('id');
+			$stu=I('stu');
+			$data['praise'] = M('group')->where($map)->getField('praise');
+			$data['praise']++;
+			$flag=M('group')->where($map)->save($data);
+			if ($flag) {
+				# code...
+				$array = array('group' => $map['id'], 'stu'=>$stu);
+				M('praise')->add($array);
+				echo $data['praise'];
+			}else{
+				echo "error";
+			}
+		}
+	}
+
+	public function apply_team()
+	{
+		if (IS_POST) {
+			$map['id']=I('id');
+			$stu=I('stu');
+		
+			$array = array('group' => $map['id'], 'stu'=>$stu,'apply_time'=>time());
+			$flag=M('apply_group')->add($array);
+			if ($flag) {
+				# code...
+				echo "success";
+			}else{
+				echo "error";
+			}
+		}
 	}
 }

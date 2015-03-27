@@ -28,7 +28,11 @@
 								</volist>
 						  	</td>
 						  	<td>{$v.public_time|date="Y-m-d",###}</td>
-						  	<td><a href="" class="">立即申请</a></td>
+						  	<td>
+						  			<if condition="$v.status eq 1"><a href="#" class="apply" data-id="{$v.id}">立即申请</a>
+						  			<elseif condition="$v.status eq 2"/>审核中
+						  			<else/>已过期
+						  			</if></td>
 						  </tr>
 						</volist>
 					  </tbody>
@@ -49,7 +53,6 @@
 	      </div>
 	      <div class="modal-footer">
 	        <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
-	        <button type="button" class="btn btn-primary">立即申请</button>
 	      </div>
 	    </div>
 	  </div>
@@ -59,9 +62,9 @@
   	<include file="Common:footlink"/>
   	<script type="text/javascript">
   	$(function(){
+		var stu = '{$Think.session.stunum}';
   		$('.proname').click(function(){
-  			var id = $(this).attr('data-id');
-		    		    console.log(id);
+			var id = $(this).attr('data-id');
 		    $.ajax({
 		    	type:"post",
 		    	url:'{:U("Home/Project/get_info")}',
@@ -72,7 +75,25 @@
 		    	}
 		    });
   		});
-  	})
+
+  		$('.apply').click(function(){
+  			var id = $(this).attr('data-id');
+  			$.ajax({
+  				type:'post',
+  				url:'{:U("Home/Project/apply_project")}',
+  				data:{'id':id,'stu':stu},
+  				cache:false,
+  				datatype:'json',
+  				success:function(data){
+  					if (data=="success") {
+  						window.location.reload();
+  					}else{
+  						console.log(data);
+  					}
+  				}
+  			})
+  		});
+  	});
 
   		$('#myModal').on('shown.bs.modal', function () {
 		    // $('#myInput').focus()
