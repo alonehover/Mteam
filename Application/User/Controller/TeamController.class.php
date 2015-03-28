@@ -10,6 +10,8 @@ class TeamController extends Controller {
 
     public function list_apply(){
     	# code...
+    	$list=M('apply_group')->select();
+    	$this->assign('list',$list);
     	$this->display();
     }
 }

@@ -10,6 +10,8 @@ class ProjectController extends Controller {
 
     public function list_project_apply(){
     	# code...
+        $list=M('apply_project')->select();
+        $this->assign('list',$list);
     	$this->display('list_apply');
     }
 
@@ -39,6 +41,11 @@ class ProjectController extends Controller {
             $this->display();
         }
         
+    }
+
+    public function apply_list()
+    {
+        # code...
     }
 
 
