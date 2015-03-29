@@ -114,7 +114,7 @@ class TeamController extends Controller {
 			$map['id']=I('id');
 			$stu=I('stu');
 		
-			$array = array('group' => $map['id'], 'stu'=>$stu,'apply_time'=>time());
+			$array = array('gid' => $map['id'], 'stu'=>$stu,'apply_time'=>time());
 			$flag=M('apply_group')->add($array);
 			if ($flag) {
 				# code...

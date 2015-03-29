@@ -33,7 +33,7 @@ class ProjectController extends Controller {
 			$group=M('author')->where($stu)->getField('group');
 			if ($group) {
 				# code...
-				$array = array('project' => $map['id'], 'group'=>$group,'apply_time'=>time());
+				$array = array('pid' => $map['id'], 'gid'=>$group,'apply_time'=>time());
 				$flag=M('apply_project')->add($array);
 				if ($flag) {
 					# code...
