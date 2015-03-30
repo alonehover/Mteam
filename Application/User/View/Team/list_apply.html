@@ -23,7 +23,7 @@
 				<div class="col-md-12">
 					<div class="panel panel-default">
 						<div class="panel-heading">
-							<h3 class="panel-title">total：<strong class="text-primary">{$team_sum}</strong>队</h3>
+							<h3 class="panel-title">申请列表</h3>
 							<div class="panel-options">
 								<a href="#" data-toggle="panel">
 									<span class="collapse-icon">&ndash;</span>
@@ -52,7 +52,7 @@
 									<tbody>
 										<volist name="list" id="v">
 											<tr>
-												<td>{$v.group}</td>
+												<td>{$v.gro.name}</td>
 												<td>{$v.stu}</td>
 												<td>{$v.apply_time|date="Y-m-d",###}</td>
 												<td>{$v.status}</td>

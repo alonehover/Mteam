@@ -1,5 +1,5 @@
 <?php 
-namespace Home\Model;
+namespace User\Model;
 use Think\Model\RelationModel;
 class ApplyProjectModel extends RelationModel{
 	protected $_link = array(
@@ -8,12 +8,14 @@ class ApplyProjectModel extends RelationModel{
 		    'class_name' => 'Project',
 		    'foreign_key' => 'pid',
 		    'mapping_name' => 'pro',
+		    'mapping_fields' => 'name',
    		 ),
 		'Group' => array(
 			'mapping_type' => self::BELONGS_TO,
 			'class_name' => 'Group',
 			'foreign_key' => 'gid',
 			'mapping_name' => 'gro',
+			'mapping_fields' => 'name',
 		),
 	);
 }

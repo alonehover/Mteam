@@ -51,11 +51,11 @@
 									<tbody>
 										<volist name="teams" id="v">
 											<tr>
-												<td>{$v.group_name}</td>
+												<td>{$v.name}</td>
 												<td>{$v.create_time|date="Y-m-d",###}</td>
-												<td>{$v.group_praise}</td>
-												<td>{$v.group_person}</td>
-												<td>{$v.group_project}</td>
+												<td>{$v.praise}</td>
+												<td>{$v.person}</td>
+												<td>{$v.project}</td>
 												<td><a class="btn btn-warnning" href="">禁用</a><a class="btn btn-danger" href="">删除</a></td>
 											</tr>	
 										</volist>	

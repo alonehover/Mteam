@@ -1,5 +1,5 @@
 <?php 
-namespace Home\Model;
+namespace User\Model;
 use Think\Model\RelationModel;
 class ApplyGroupModel extends RelationModel{
 	protected $_link = array(
@@ -8,6 +8,7 @@ class ApplyGroupModel extends RelationModel{
 			'class_name' => 'Group',
 			'foreign_key' => 'gid',
 			'mapping_name' => 'gro',
+			'mapping_fields' => 'name',
 		),
 	);
 }

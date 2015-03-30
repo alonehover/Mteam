@@ -10,7 +10,8 @@ class TeamController extends Controller {
 
     public function list_apply(){
     	# code...
-    	$list=M('apply_group')->select();
+    	// $list=M('apply_group')->select();
+        $list=D('ApplyGroup')->relation(true)->select();
     	$this->assign('list',$list);
     	$this->display();
     }
