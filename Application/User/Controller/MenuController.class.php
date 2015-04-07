@@ -1,7 +1,7 @@
 <?php
 namespace User\Controller;
-use Think\Controller;
-class MenuController extends Controller {
+use User\Controller\CommonController;
+class MenuController extends CommonController {
     public function list_menu(){
     	$this->display();
     }

@@ -1,7 +1,7 @@
 <?php
 namespace User\Controller;
-use Think\Controller;
-class SettingController extends Controller {
+use User\Controller\CommonController;
+class SettingController extends CommonController {
     public function list_menu(){
     	$menu=M('menu')->select();
     	$this->assign('menus',$menu);
@@ -151,7 +151,7 @@ class SettingController extends Controller {
                 echo json_encode(0);
             }
         }
-        
+
     }
 
     public function del_skill(){

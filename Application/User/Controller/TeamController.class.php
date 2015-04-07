@@ -1,7 +1,7 @@
 <?php
 namespace User\Controller;
-use Think\Controller;
-class TeamController extends Controller {
+use User\Controller\CommonController;
+class TeamController extends CommonController {
     public function list_team(){
     	$data=M('group')->select();
     	$this->assign('teams',$data);

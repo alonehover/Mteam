@@ -13,7 +13,7 @@ class SignController extends Controller {
   	public function signin()
 	{
 		$this->display('sign_in');
-	}  
+	}
 
 	/**
 	 * 登录处理
@@ -31,6 +31,7 @@ class SignController extends Controller {
 				if($result){
 					session('leader',$result['leader']);
 					session('stunum',I('stunum'));
+          session('uid',$result['id']);
 					$this->success('欢迎进入MGroup!',U('Home/Index/index'));
 				}else{
 					$this->error('密码错误，请重新输入');
@@ -86,7 +87,7 @@ class SignController extends Controller {
 	{
 		$str = array('stunum' => $val);
 		$flag=M('author')->where($str)->select();
-		$result = ($flag) ? 1 : 0 ;		//已存在输出1  
+		$result = ($flag) ? 1 : 0 ;		//已存在输出1
 		return $result;
 	}
 

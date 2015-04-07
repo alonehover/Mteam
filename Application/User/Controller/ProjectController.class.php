@@ -1,7 +1,7 @@
 <?php
 namespace User\Controller;
-use Think\Controller;
-class ProjectController extends Controller {
+use User\Controller\CommonController;
+class ProjectController extends CommonController {
     public function list_project(){
         $data=M('project')->select();
         $this->assign('project',$data);
@@ -43,7 +43,7 @@ class ProjectController extends Controller {
             $this->assign('skill',$skill);
             $this->display();
         }
-        
+
     }
 
 }

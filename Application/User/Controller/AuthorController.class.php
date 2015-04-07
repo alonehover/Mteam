@@ -1,7 +1,7 @@
 <?php
 namespace User\Controller;
-use Think\Controller;
-class AuthorController extends Controller {
+use User\Controller\CommonController;
+class AuthorController extends CommonController {
     public function list_user(){
     	$data=M('author')->select();
     	$sum=M('author')->count();
@@ -36,7 +36,7 @@ class AuthorController extends Controller {
             $this->assign('skill',$skill);
             $this->display();
         }
-        
+
     }
 
 

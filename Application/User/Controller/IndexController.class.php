@@ -1,8 +1,8 @@
 <?php
 namespace User\Controller;
-use Think\Controller;
+use User\Controller\CommonController;
 
-class IndexController extends Controller {
+class IndexController extends CommonController {
     public function index(){
     	$aut_num=M('author')->count();
     	$pro_num=M('project')->count();

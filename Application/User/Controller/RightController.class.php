@@ -1,6 +1,6 @@
 <?php
 namespace User\Controller;
-use Think\Controller;
+// use User\Controlle\UserController;
 class RightController extends UserController {
     public function list_right(){
     	$data=M('auth_rule')->select();
@@ -45,7 +45,7 @@ class RightController extends UserController {
                 $this->error('添加失败，角色已存在！');
             }
         }
-           
+
     }
 
     public function edit_role_right(){
