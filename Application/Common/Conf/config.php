@@ -22,5 +22,5 @@ return array(
     ),
 
     //超级管理员id,拥有全部权限,只要用户uid在这个角色组里的,就跳出认证.可以设置多个值,如array('1','2','3')
-    'ADMINISTRATOR'=>array('1'),
+    'ADMINISTRATOR'=>array('7'),
 );

@@ -54,4 +54,21 @@ class AuthorController extends CommonController {
             }
         }
     }
+
+    public function change_pwd(){
+      if(IS_POST){
+        $map['stunum']=session('stunum');
+        $map['password']=md5(I('oldpwd'));
+        $flag=M('author')->where($map)->getField('id');
+        if($flag){
+          $map['password']=md5(I('newpwd'));
+          $map['id']=$flag;
+          if(M('author')->save($map)){
+            $this->success('修改成功！');
+          }else{
+            $this->error('修改失败~');
+          }
+        }
+      }
+    }
 }
