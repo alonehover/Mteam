@@ -4,12 +4,12 @@ return array(
     'DB_TYPE'=>'mysql',
     'DB_HOST'=>'localhost',
     'DB_NAME'=>'mgroup',
-	'DB_USER'=>'root',
-	'DB_PWD'=>'root',
-	'DB_PREFIX'=>'mg_',
-	'DB_PORT'=>'3306',
-	'DB_CHARST'=>'utf8',
-
+  	'DB_USER'=>'root',
+  	'DB_PWD'=>'root',
+  	'DB_PREFIX'=>'mg_',
+  	'DB_PORT'=>'3306',
+  	'DB_CHARST'=>'utf8',
+    // 'SHOW_PAGE_TRACE' =>true, 
 
 	//Auth权限设置
     'AUTH_CONFIG' => array(
@@ -22,5 +22,5 @@ return array(
     ),
 
     //超级管理员id,拥有全部权限,只要用户uid在这个角色组里的,就跳出认证.可以设置多个值,如array('1','2','3')
-    'ADMINISTRATOR'=>array('7'),
+    'ADMINISTRATOR'=>array('1'),
 );

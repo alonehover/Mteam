@@ -31,15 +31,25 @@
 					<p>团队宣言：</p>
 				  	<p>{$info.declare|default="无"}</p>
 				</blockquote>
-
-				<a href="#" class="btn btn-default btn-lg" id="join">申请加入</a>
-				<a href="#" class="btn btn-default btn-lg" id="praise"><i class="fa fa-thumbs-o-up"></i> <span class="badge">{$info.praise}</span></a>
-		  	</div> 
+        <!-- <if condition="$MYINFO.group "></if> -->
+        <empty name="MYINFO.group">
+          <if condition="$info.apply eq null">
+            <a href="#" class="btn btn-default btn-lg" id="join">申请加入</a>
+          <else/>
+            <a href="#" class="btn btn-warning btn-lg disabled">已申请</a>
+          </if>
+        </empty>
+        <empty name='info.is_praise'>
+          <a href="#" class="btn btn-default btn-lg" id="praise"><i class="fa fa-thumbs-o-up"></i> <span class="badge">{$info.praise}</span></a>
+          <else/>
+          <a href="#" class="btn btn-default btn-lg disabled"><i class="fa fa-thumbs-up"></i> <span class="badge">{$info.praise}</span></a>
+        </empty>
+		  	</div>
 		  	<script type="text/javascript">
 			  	$(function(){
 			  		var id = '{$info.id}';
 			  		var name= '{$Think.session.stunum}'
-			  		$('#praise').click(function(){
+			  		$('.praise').click(function(){
 			  			if (name!="") {
 				  			$.ajax({
 				  				type:'post',
@@ -56,7 +66,6 @@
 				  				}
 				  			});
 			  			};
-			  			
 			  		});
 
 			  		$('#join').click(function(){
@@ -67,7 +76,7 @@
 				  				cache: false,
 				  				success: function(data){
 				  					if (data=="success") {
-				  						$('#join').attr('class','btn btn-primary btn-lg').text("审核中...");
+				  						$('#join').attr('class','btn btn-primary btn-lg disabled').text("审核中...");
 				  					}else{
 				  						console.log(1);
 				  					}
@@ -76,11 +85,11 @@
 			  		});
 			  	})
 
-		  	</script> 	  		
+		  	</script>
 	  	</div>
 	  	<div class="row">
 	  		<div class="page-header"><blockquote><p>团队简介</p></blockquote></div>
-	  		<empty name="info.info">  
+	  		<empty name="info.info">
 	  			<div class="alert alert-warning text-center" role="alert">暂无相关简介</div>
 	  		<else/>
 	  			<p>{$info.info}</p>

@@ -13,7 +13,6 @@ use Think\Model;
 /**
  * 用户组模型类
  * Class AuthGroupModel
- * @author 朱亚杰 <zhuyajie@topthink.net>
  */
 class AuthGroupModel extends Model {
     const TYPE_ADMIN                = 1;                   // 管理员用户组类型标识
@@ -37,7 +36,6 @@ class AuthGroupModel extends Model {
      * 默认返回正常状态的管理员用户组列表
      * @param array $where   查询条件,供where()方法使用
      *
-     * @author 朱亚杰 <zhuyajie@topthink.net>
      */
     public function getGroups($where=array()){
         $map = array('status'=>1,'type'=>self::TYPE_ADMIN,'module'=>'admin');
@@ -122,7 +120,6 @@ class AuthGroupModel extends Model {
      *
      *  array(2,4,8,13)
      *
-     * @author 朱亚杰 <xcoolcc@gmail.com>
      */
     static public function getAuthExtend($uid,$type,$session){
         if ( !$type ) {
@@ -154,7 +151,6 @@ class AuthGroupModel extends Model {
      *
      *  array(2,4,8,13)
      *
-     * @author 朱亚杰 <zhuyajie@topthink.net>
      */
     static public function getAuthCategories($uid){
         return self::getAuthExtend($uid,self::AUTH_EXTEND_CATEGORY_TYPE,'AUTH_CATEGORY');
@@ -170,7 +166,6 @@ class AuthGroupModel extends Model {
      *
      *  array(2,4,8,13)
      *
-     * @author 朱亚杰 <xcoolcc@gmail.com>
      */
     static public function getExtendOfGroup($gid,$type){
         if ( !is_numeric($type) ) {
@@ -187,7 +182,6 @@ class AuthGroupModel extends Model {
      *
      *  array(2,4,8,13)
      *
-     * @author 朱亚杰 <zhuyajie@topthink.net>
      */
     static public function getCategoryOfGroup($gid){
         return self::getExtendOfGroup($gid,self::AUTH_EXTEND_CATEGORY_TYPE);
@@ -200,7 +194,6 @@ class AuthGroupModel extends Model {
      * @param int|string|array $gid   用户组id
      * @param int|string|array $cid   分类id
      *
-     * @author 朱亚杰 <xcoolcc@gmail.com>
      */
     static public function addToExtend($gid,$cid,$type){
         $gid = is_array($gid)?implode(',',$gid):trim($gid,',');
@@ -234,7 +227,6 @@ class AuthGroupModel extends Model {
      * @param int|string|array $gid   用户组id
      * @param int|string|array $cid   分类id
      *
-     * @author 朱亚杰 <zhuyajie@topthink.net>
      */
     static public function addToCategory($gid,$cid){
         return self::addToExtend($gid,$cid,self::AUTH_EXTEND_CATEGORY_TYPE);
@@ -245,9 +237,8 @@ class AuthGroupModel extends Model {
      * 将用户从用户组中移除
      * @param int|string|array $gid   用户组id
      * @param int|string|array $cid   分类id
-     * @author 朱亚杰 <xcoolcc@gmail.com>
      */
-    public function removeFromGroup($uid,$gid){
+    public function removeFroMTeam($uid,$gid){
         return M(self::AUTH_GROUP_ACCESS)->where( array( 'uid'=>$uid,'group_id'=>$gid) )->delete();
     }
 
@@ -256,7 +247,6 @@ class AuthGroupModel extends Model {
      *
      * @param int $group_id   用户组id
      *
-     * @author 朱亚杰 <zhuyajie@topthink.net>
      */
     static public function memberInGroup($group_id){
         $prefix   = C('DB_PREFIX');
@@ -275,7 +265,6 @@ class AuthGroupModel extends Model {
     /**
      * 检查id是否全部存在
      * @param array|string $gid  用户组id列表
-     * @author 朱亚杰 <zhuyajie@topthink.net>
      */
     public function checkId($modelname,$mid,$msg = '以下id不存在:'){
         if(is_array($mid)){
@@ -300,7 +289,6 @@ class AuthGroupModel extends Model {
     /**
      * 检查用户组是否全部存在
      * @param array|string $gid  用户组id列表
-     * @author 朱亚杰 <zhuyajie@topthink.net>
      */
     public function checkGroupId($gid){
         return $this->checkId('AuthGroup',$gid, '以下用户组id不存在:');
@@ -309,7 +297,6 @@ class AuthGroupModel extends Model {
     /**
      * 检查分类是否全部存在
      * @param array|string $cid  栏目分类id列表
-     * @author 朱亚杰 <zhuyajie@topthink.net>
      */
     public function checkCategoryId($cid){
         return $this->checkId('Category',$cid, '以下分类id不存在:');

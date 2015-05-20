@@ -29,10 +29,10 @@ class SignController extends Controller {
 			if($flag){
 				$result=M('author')->where($data)->find();
 				if($result){
-					session('leader',$result['leader']);
+					// session('leader',$result['leader']);
 					session('stunum',I('stunum'));
           session('uid',$result['id']);
-					$this->success('欢迎进入MGroup!',U('Home/Index/index'));
+					$this->success('欢迎进入MTeam!',U('Home/Index/index'));
 				}else{
 					$this->error('密码错误，请重新输入');
 				}

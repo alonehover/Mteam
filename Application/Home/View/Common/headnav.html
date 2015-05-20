@@ -7,7 +7,7 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="{:U('Home/Index/index')}">MGroup</a>
+        <a class="navbar-brand" href="{:U('Home/Index/index')}">MTeam</a>
       </div>
       <div id="navbar" class="collapse navbar-collapse">
         <ul class="nav navbar-nav">
@@ -18,11 +18,14 @@
         <ul class="nav navbar-nav navbar-right">
         <if condition="session('stunum')">
           <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">{$Think.session.stunum}<span class="caret"></a>
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+              <empty name="MYINFO.authorname">{$Think.session.stunum}<else/>{$MYINFO.authorname}</empty>
+              <span class="caret">
+            </a>
             <ul class="dropdown-menu" role="menu">
-            <if condition="session('leader') eq 0">
+            <if condition="$MYINFO.leader eq 0">
               <li><a href="{:U('Home/Team/team_creat')}">创建团队</a></li>
-            <elseif condition="session('leader') eq 1"/>
+            <elseif condition="$MYINFO.leader eq 1"/>
               <li><a href="{:U('User/Index/index')}">管理团队</a></li>
             <else/>
               <li><a href="#">我的团队</a></li>

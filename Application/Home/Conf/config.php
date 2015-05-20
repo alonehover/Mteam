@@ -1,7 +1,7 @@
 <?php
 
 return array(
-
+  
 	 /* 图片上传相关配置 */
     'PICTURE_UPLOAD' => array(
 		'mimes'    => '', //允许上传的文件MiMe类型

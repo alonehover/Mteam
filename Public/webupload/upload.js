@@ -182,7 +182,7 @@
                 extensions: 'gif,jpg,jpeg,bmp,png',
                 mimeTypes: 'image/*'
             },
-            
+
             // 禁掉全局的拖拽功能。这样不会出现图片拖进页面的时候，把图片打开。
             disableGlobalDnd: true,
             fileNumLimit: 1,
@@ -211,7 +211,7 @@
         //上传成功返回参数
         uploader.on('uploadSuccess',function(file,response) {
             var data=response.file;
-            console.log(data);
+            console.log(response);
             $('#picurl').val(data['savepath']+data['savename']);
 
         })

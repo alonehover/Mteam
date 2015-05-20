@@ -87,19 +87,13 @@ class RightController extends UserController {
      * 访问授权页面
      */
     public function access(){
-        // $this->updateRules();
-        // p(I('group_id'));
         $auth_group = M('auth_group')->where( array('status'=>array('egt','0')) )->getfield('id,title,rules');
         $node_list   = $this->returnNodes();
-        // $map         = array('module'=>'admin','type'=>AuthRuleModel::RULE_MAIN,'status'=>1);
         $main_rules  = M('auth_rule')->where($map)->getField('name,id');
-        // $map         = array('module'=>'admin','type'=>AuthRuleModel::RULE_URL,'status'=>1);
         $child_rules = M('AuthRule')->where($map)->getField('name,id');
-        // p($node_list);
         $this->assign('main_rules', $main_rules);
         $this->assign('auth_rules', $child_rules);
         $this->assign('node_list',  $node_list);
-        // $this->assign('auth_group', $auth_group);
         $this->assign('this_group', $auth_group[(int)$_GET['group_id']]);
         $this->display();
     }

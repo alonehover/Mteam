@@ -5,21 +5,17 @@ class ProjectController extends CommonController {
     public function list_project(){
         $data=M('project')->select();
         $this->assign('project',$data);
-    	$this->display();
+    	  $this->display();
     }
 
     public function list_project_apply(){
-    	# code...
-        // $list=M('apply_project')->select();
         $List=D('ApplyProject');
         $list=$List->relation(true)->select();
-        // p($list);die;
         $this->assign('list',$list);
-    	$this->display('list_apply');
+    	  $this->display('list_apply');
     }
 
     public function add_project(){
-    	# code...
         if (IS_POST) {
            $data = array(
                 'name'=> I('project_name'),
@@ -32,7 +28,6 @@ class ProjectController extends CommonController {
             );
             $flag=M('project')->add($data);
             if ($flag) {
-                # code...
                 $this->success('添加成功！',U('User/Project/list_project'));
 
             }else{
@@ -44,6 +39,10 @@ class ProjectController extends CommonController {
             $this->display();
         }
 
+    }
+
+    public function edit_status(){
+      
     }
 
 }

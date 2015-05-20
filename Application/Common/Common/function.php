@@ -55,7 +55,7 @@ function list_to_tree($list, $pk='id', $pid = 'pid', $child = '_child', $root = 
 		//获取当前uid所在的角色组id
 		$groups=$auth->getGroups($uid);
 		//这里偷懒了,因为我设置的是一个用户对应一个角色组,所以直接取值.如果是对应多个角色组的话,需另外处理
-		if(in_array($groups[0]['uid'], C('ADMINISTRATOR'))){
+		if(in_array($uid, C('ADMINISTRATOR'))){
 			return true;
 		}else{
 			return $auth->check($rule,$uid,$type,$mode,$relation)?true:false;

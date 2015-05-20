@@ -1,9 +1,13 @@
-<?php 
+<?php
 
 namespace Home\Controller;
-use Think\Controller;
-class TeamController extends Controller {
+use Home\Controller\CommonController;
+class TeamController extends CommonController {
 
+	public function _initialize(){
+		parent::_initialize();
+		$this->assign('active','team');
+	}
 	public function index(){
 		# code...
 		$data=M('group')->select();
@@ -20,13 +24,21 @@ class TeamController extends Controller {
 		if (I('id')!= " ") {
 			$map['id']=I('id');
 			$data=M('group')->where($map)->find();
-			$data['skill']=explode(',', $data['skill']);
+			$sql='stu='.session('stunum').' AND gid='.$map['id'];
+			$apply_teamer = M('apply_group')->where($sql)->find();
+			$is_praise = M('praise')->where($sql)->find();
 			$per=$this->get_team_per(I('id'));
 			$pro=$this->get_team_project(I('id'));
-			$data['per_num']=count($per);
-			$data['per_info'] = $per;
-			$data['pro_num']= count($pro);
-			$data['pro_info'] = $pro;
+			$data += array(
+				'id' => $map['id'],
+				'skill' => explode(',', $data['skill']),
+				'per_num'=>count($per),
+				'per_info'=> $per,
+				'pro_num' => count($pro),
+				'pro_info'=> $pro,
+				'apply'=>$apply_teamer,
+				'is_praise'=>$is_praise,
+				);
 			$this->assign('info',$data);
 			$this->display();
 		}
@@ -42,7 +54,7 @@ class TeamController extends Controller {
 				$this->error('名称已存在,请重新输入');
 			}else{
 					$data = array(
-						'name' => I('groupname'), 
+						'name' => I('groupname'),
 						'declare' => I('declare'),
 						'skill'=>implode(',',(array)I('skill')),
 						'info' => I('info'),
@@ -99,8 +111,27 @@ class TeamController extends Controller {
 			$flag=M('group')->where($map)->save($data);
 			if ($flag) {
 				# code...
-				$array = array('group' => $map['id'], 'stu'=>$stu);
+				$array = array('gid' => $map['id'], 'stu'=>$stu);
 				M('praise')->add($array);
+				echo $data['praise'];
+			}else{
+				echo "error";
+			}
+		}
+	}
+	//取消点赞
+	public function del_praise(){
+		if (IS_POST) {
+			$map['id']=I('id');
+			$stu=I('stu');
+			$data['praise'] = M('group')->where($map)->getField('praise');
+			$data['praise']--;
+			$flag=M('group')->where($map)->save($data);
+			if ($flag) {
+				# code...
+				$array = array('gid' => $map['id'], 'stu'=>$stu);
+				// $sql='gid='.
+				M('praise')->where($array)->delete();
 				echo $data['praise'];
 			}else{
 				echo "error";
@@ -113,7 +144,7 @@ class TeamController extends Controller {
 		if (IS_POST) {
 			$map['id']=I('id');
 			$stu=I('stu');
-		
+
 			$array = array('gid' => $map['id'], 'stu'=>$stu,'apply_time'=>time());
 			$flag=M('apply_group')->add($array);
 			if ($flag) {

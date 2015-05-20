@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<include file="Common:headlink"/>	
+	<include file="Common:headlink"/>
 
 	<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
 	<!--[if lt IE 9]>
 		<script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
 		<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
 	<![endif]-->
-	
+
 </head>
 <body class="page-body">
 	<include file="Common:setting"/>
@@ -53,12 +53,12 @@
 											<tr>
 												<td>{$v.name}</td>
 												<td>{$v.create_time|date="Y-m-d",###}</td>
-												<td>{$v.praise}</td>
-												<td>{$v.person}</td>
-												<td>{$v.project}</td>
-												<td><a class="btn btn-warnning" href="">禁用</a><a class="btn btn-danger" href="">删除</a></td>
-											</tr>	
-										</volist>	
+												<td>{$v.praise|default="0"}</td>
+												<td>{$v.person|default="0"}</td>
+												<td>{$v.project|default="0"}</td>
+												<td><a class="btn btn-primary btn-xs" href="">查看队员</a><a class="btn btn-success btn-xs" href="">编辑</a><a class="btn btn-warning btn-xs" href="">禁用</a><a class="btn btn-danger btn-xs" href="">删除</a></td>
+											</tr>
+										</volist>
 									</tbody>
 								</table>
 							</div>

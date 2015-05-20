@@ -16,7 +16,6 @@ class UserController extends Controller {
      *
      * 注意,返回的主菜单节点数组中有'controller'元素,以供区分子节点和主节点
      *
-     * @author 朱亚杰 <xcoolcc@gmail.com>
      */
     final protected function returnNodes($tree = true){
         static $tree_nodes = array();

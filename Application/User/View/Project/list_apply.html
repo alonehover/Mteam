@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<include file="Common:headlink"/>	
+	<include file="Common:headlink"/>
 
 	<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
 	<!--[if lt IE 9]>
 		<script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
 		<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
 	<![endif]-->
-	
+
 </head>
 <body class="page-body">
 	<include file="Common:setting"/>
@@ -23,7 +23,7 @@
 				<div class="col-md-12">
 					<div class="panel panel-default">
 						<div class="panel-heading">
-							<h3 class="panel-title">total：<strong class="text-primary">{$team_sum}</strong>队</h3>
+							<h3 class="panel-title">项目申请列表</h3>
 							<div class="panel-options">
 								<a href="#" data-toggle="panel">
 									<span class="collapse-icon">&ndash;</span>
@@ -46,6 +46,7 @@
 											<th data-priority="1">项目名称</th>
 											<th data-priority="3">申请团队</th>
 											<th data-priority="1">申请时间</th>
+											<th data-priority="1">申请状态</th>
 											<th data-priority="6">操作</th>
 										</tr>
 									</thead>
@@ -55,10 +56,10 @@
 												<td>{$v.pro.name}</td>
 												<td>{$v.gro.name}</td>
 												<td>{$v.apply_time|date="Y-m-d",###}</td>
-												<td>{$v.status}</td>
-												<td><a class="btn btn-success" href="">通过</a><a class="btn btn-danger" href="">撤销</a></td>
-											</tr>	
-										</volist>	
+												<td>{$v.status.remark}</td>
+												<td><a class="btn btn-success btn-xs" href="">通过</a><a class="btn btn-danger btn-xs" href="">撤销</a></td>
+											</tr>
+										</volist>
 									</tbody>
 								</table>
 							</div>

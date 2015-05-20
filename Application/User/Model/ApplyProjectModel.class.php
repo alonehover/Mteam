@@ -1,4 +1,4 @@
-<?php 
+<?php
 namespace User\Model;
 use Think\Model\RelationModel;
 class ApplyProjectModel extends RelationModel{
@@ -16,6 +16,13 @@ class ApplyProjectModel extends RelationModel{
 			'foreign_key' => 'gid',
 			'mapping_name' => 'gro',
 			'mapping_fields' => 'name',
+		),
+		'StatusProject'=>array(
+			'mapping_type' => self::BELONGS_TO,
+			'class_name' => 'StatusProject',
+			'foreign_key' => 'status',
+			'mapping_name' => 'status',
+			'mapping_fields' => 'remark',
 		),
 	);
 }
