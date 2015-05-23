@@ -2,7 +2,7 @@
 <html lang="zh-cn">
   <head>
 	  <meta charset="utf-8">
-<title>MGroup</title>
+<title>MTeam</title>
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link href="/Mteam/Public/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -26,7 +26,7 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="<?php echo U('Home/Index/index');?>">MGroup</a>
+        <a class="navbar-brand" href="<?php echo U('Home/Index/index');?>">MTeam</a>
       </div>
       <div id="navbar" class="collapse navbar-collapse">
         <ul class="nav navbar-nav">
@@ -36,14 +36,17 @@
         </ul>
         <ul class="nav navbar-nav navbar-right">
         <?php if(session('stunum')): ?><li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><?php echo (session('stunum')); ?><span class="caret"></a>
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+              <?php if(empty($MYINFO["authorname"])): echo (session('stunum')); else: echo ($MYINFO["authorname"]); endif; ?>
+              <span class="caret">
+            </a>
             <ul class="dropdown-menu" role="menu">
-            <?php if(session('leader') == 0): ?><li><a href="<?php echo U('Home/Team/team_creat');?>">创建团队</a></li>
-            <?php elseif(session('leader') == 1): ?>
+            <?php if($MYINFO["leader"] == 0): ?><li><a href="<?php echo U('Home/Team/team_creat');?>">创建团队</a></li>
+            <?php elseif($MYINFO["leader"] == 1): ?>
               <li><a href="<?php echo U('User/Index/index');?>">管理团队</a></li>
             <?php else: ?>
               <li><a href="#">我的团队</a></li><?php endif; ?>
-              <li><a href="#">个人信息</a></li>
+              <li><a href="<?php echo U('Home/User/show');?>">个人信息</a></li>
             </ul>
           </li>
           <li><a href="<?php echo U('Home/Sign/signout');?>" tppabs="">[退出]</a></li>
@@ -57,8 +60,8 @@
 
   	<div class="masthead jumbotron">
     	<div class="container">
-	        <h1>MGroup</h1>
-	        <p class="lead"><kbd>&lt;team&gt;基于html5的校园项目团队管理系统&lt;/team&gt;</kbd></p>
+	        <h1>MTeam</h1>
+	        <p class="lead"><kbd>&lt;team&gt;高校技术团队管理网站&lt;/team&gt;</kbd></p>
       </div>
     </div><!-- /.container-top -->
     <div class="container">
@@ -70,13 +73,15 @@
       <?php if(is_array($team)): $i = 0; $__LIST__ = $team;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$v): $mod = ($i % 2 );++$i;?><div class="col-sm-6 col-md-4 col-lg-3 ">
             <div class="thumbnail text-center">
               <a href="<?php echo U('Home/Team/team_info',array('id'=>$v['id']));?>" title="<?php echo ($v["name"]); ?>" target="_blank" onclick="">
-                <img class="lazy" src="<?php if(empty($v["img"])): ?>/Mteam/Public/home/img/sm_bg.jpg<?php else: echo ($v["img"]); endif; ?>" width="300" height="150" data-src="<?php echo ($v["img"]); ?>" alt="<?php echo ($v["name"]); ?>">
+                <img class="lazy" src="<?php if(empty($v["img"])): ?>/Mteam/Public/home/img/sm_bg.jpg<?php else: echo ($v["img"]); endif; ?>" width="245px" height="135px" data-src="<?php echo ($v["img"]); ?>" alt="<?php echo ($v["name"]); ?>">
               </a>
               <div class="caption">
-                <h3> 
+                <h3>
                   <a href="<?php echo U('Home/Team/team_info',array('id'=>$v['id']));?>" title="" target="_blank" onclick=""><?php echo ($v["name"]); ?><br></a>
                 </h3>
-                <?php if(is_array($v["skill"])): $i = 0; $__LIST__ = $v["skill"];if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?><li><span class="label label-info"><?php echo ($vo); ?></span></li><?php endforeach; endif; else: echo "" ;endif; ?>
+                <ul class="list-inline">
+                  <?php if(is_array($v["skill"])): $i = 0; $__LIST__ = $v["skill"];if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?><li><span class="label label-info"><?php echo ($vo); ?></span></li><?php endforeach; endif; else: echo "" ;endif; ?>
+                </ul>
               </div>
             </div>
           </div><?php endforeach; endif; else: echo "" ;endif; ?>

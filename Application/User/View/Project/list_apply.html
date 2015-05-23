@@ -57,7 +57,10 @@
 												<td>{$v.gro.name}</td>
 												<td>{$v.apply_time|date="Y-m-d",###}</td>
 												<td>{$v.status.remark}</td>
-												<td><a class="btn btn-success btn-xs" href="">通过</a><a class="btn btn-danger btn-xs" href="">撤销</a></td>
+												<td>
+													<a class="btn btn-success btn-xs pass-apply" data-id={$v.id} data-url={:U('User/Project/pass_status')}>通过</a>
+													<a class="btn btn-danger btn-xs del-apply" data-id={$v.id} data-url={:U('User/Project/del_status')}>撤销</a>
+												</td>
 											</tr>
 										</volist>
 									</tbody>
@@ -72,6 +75,46 @@
 									$(".checkbox-row input").addClass('cbr');
 									cbr_replace();
 								}, 0);
+							});
+							$(function(){
+								$('.pass-apply').on('click',function(){
+									var id=$(this).data('id');
+									var url=$(this).data('url');
+									$.ajax({
+										type:'post',
+										url:url,
+										data:{'id':id},
+										cache:false,
+										datatype:"json",
+										success:function(data){
+											if (data==1) {
+												window.location.reload();
+												$('.pass-apply').addClass('disabled');
+											}else{
+												alert('操作有误，请重试！');
+											}
+										}
+									});
+								});
+								$('.del-apply').on('click',function(){
+									var id=$(this).data('id');
+									var url=$(this).data('url');
+									$.ajax({
+										type:'post',
+										url:url,
+										data:{'id':id},
+										cache:false,
+										datatype:"json",
+										success:function(data){
+											if (data==2) {
+												window.location.reload();
+												$('.del-apply').addClass('disabled');
+											}else{
+												alert('操作有误，请重试！');
+											}
+										}
+									});
+								});
 							});
 							</script>
 						</div>

@@ -41,8 +41,29 @@ class ProjectController extends CommonController {
 
     }
 
-    public function edit_status(){
-      
+    public function pass_status(){
+      if(IS_POST){
+        $data['id']=I('id');
+        $data['status']=1;
+        $flag=M('apply_project')->save($data);
+        if($flag){
+          echo 1;
+        }else{
+          echo "error";
+        }
+      }
+    }
+    public function del_status(){
+      if(IS_POST){
+        $data['id']=I('id');
+        $data['status']=2;
+        $flag=M('apply_project')->save($data);
+        if($flag){
+          echo 2;
+        }else{
+          echo "error";
+        }
+      }
     }
 
 }

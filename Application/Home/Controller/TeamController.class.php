@@ -69,7 +69,7 @@ class TeamController extends CommonController {
 						$save['group']=$flag;
 						$save['jointime']=time();
 						if(M('author')->where($map)->save($save)){
-							session('leader',1);
+							
 							$this->success('创建成功！',U('Index/index'));
 						}else{
 							$this->error('创建失败！');

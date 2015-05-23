@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+  <head>
+	  <include file="Common:headlink"/>
+	  <link rel="stylesheet" type="text/css" href="__PUBLIC__/home/css/home.css"/>
+  </head>
+  <body style="margin:80px">
+  	<include file="Common:headnav"/>
+
+    <div class="container">
+      <div class="panel panel-default">
+        <div class="panel-body">
+            <form role="form" class="form-horizontal" method="post" action="{:U('Home/User/edit')}">
+              <div class="form-group">
+                <label class="col-sm-2 control-label" for="field-1">用户名：</label>
+                <div class="col-sm-10">
+                  <input type="text" class="form-control" name="username" placeholder="昵称显示（6~20字符）" value="{$info.authorname}">
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label class="col-sm-2 control-label" for="field-2">登录密码：</label>
+                <div class="col-sm-10">
+                  <input type="password" class="form-control" name="password"  placeholder="登录密码（6~20字符）">
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label class="col-sm-2 control-label">性别：</label>
+                <div class="col-sm-10">
+                  <label class="radio-inline">
+                    <input type="radio" name="sex" value="男" <if condition="$info['sex'] eq '男'">checked</if>>
+                    男
+                  </label>
+                  <label class="radio-inline">
+                    <input type="radio" name="sex" value="女" <if condition="$info['sex'] eq '女'">checked</if>>
+                    女
+                  </label>
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="col-sm-2 control-label">技能选择：</label>
+                <script type="text/javascript">
+                  jQuery(document).ready(function($)
+                  {
+                    $("#s2example-2").select2({
+                      placeholder: '选择擅长的技能',
+                      allowClear: true
+                    }).on('select2-open', function()
+                    {
+                      // Adding Custom Scrollbar
+                      $(this).data('select2').results.addClass('overflow-hidden').perfectScrollbar();
+                    });
+
+                  });
+                </script>
+                <div class="col-sm-10">
+                  <select class="form-control" id="s2example-2" name="skill[]" multiple>
+                    <option></option>
+                    <optgroup label="请选择熟悉的技能">
+                      <volist name="skill" id="v">
+                        <option value="{$v.id}">{$v.name}</option>
+                      </volist>
+                    </optgroup>
+                  </select>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label class="col-sm-2 control-label" for="field-5">个人简介</label>
+                <div class="col-sm-10">
+                  <textarea class="form-control autogrow" cols="5"  name="info" placeholder="少于200字">{$info.info}</textarea>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <div class="col-sm-2 control-label">
+                  <button class="btn btn-primary" type="submit">提交</button>
+                </div>
+              </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    <include file="Common:footnav"/>
+    <include file="Common:footlink"/>
+    <link rel="stylesheet" href="__PUBLIC__/common/js/select2/select2.css">
+  	<link rel="stylesheet" href="__PUBLIC__/common/js/select2/select2-bootstrap.css">
+
+  	<script src="__PUBLIC__/common/js/tagsinput/bootstrap-tagsinput.min.js"></script>
+  	<script src="__PUBLIC__/common/js/select2/select2.min.js"></script>
+  </body>
+</html>
